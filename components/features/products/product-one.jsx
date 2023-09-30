@@ -127,22 +127,22 @@ function ProductOne(props) {
                     <ALink href={`/product/default/${product.slug}`}>{product.name}</ALink>
                 </h3>
 
-                <div className="ratings-container">
+               {/*} <div className="ratings-container">
                     <div className="product-ratings">
                         <span className="ratings" style={{ width: 20 * product.ratings + '%' }}></span>
                         <span className="tooltiptext tooltip-top">{product.ratings.toFixed(2)}</span>
                     </div>
-                </div>
+                    </div>*/}
 
                 <div className="price-box">
                     {
                         product.price[0] == product.price[1] ?
-                            <span className="product-price">{'$' + product.price[0].toFixed(2)}</span>
+                            <span className="product-price">{'₹' + product.price[0].toFixed(2)}</span>
                             : product.variants.length > 0 ?
-                                <span className="product-price">{'$' + product.price[0].toFixed(2)} &ndash; {'$' + product.price[1].toFixed(2)}</span>
+                                <span className="product-price">{'₹' + product.price[0].toFixed(2)} &ndash; {'₹' + product.price[1].toFixed(2)}</span>
                                 : <>
-                                    <span className="old-price">{'$' + product.price[1].toFixed(2)}</span>
-                                    <span className="product-price">{'$' + product.price[0].toFixed(2)}</span>
+                                    <span className="old-price">{'₹' + product.price[1].toFixed(2)}</span>
+                                    <span className="product-price">{'₹' + product.price[0].toFixed(2)}</span>
                                 </>
                     }
                 </div>

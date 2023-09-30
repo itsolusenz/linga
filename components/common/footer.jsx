@@ -6,7 +6,7 @@ function Footer () {
     return (
         <footer className="footer">
             <div className="container">
-                <div className="footer-top top-border d-flex align-items-center justify-content-between flex-wrap">
+               {/*} <div className="footer-top top-border d-flex align-items-center justify-content-between flex-wrap">
                     <div className="footer-left widget-newsletter d-md-flex align-items-center">
                         <div className="widget-newsletter-info">
                             <h5 className="widget-newsletter-title text-uppercase m-b-1">subscribe newsletter</h5>
@@ -28,23 +28,23 @@ function Footer () {
                             <ALink href="#" className="social-icon social-instagram icon-instagram"></ALink>
                         </div>
                     </div>
-                </div>
+                </div>*/}
 
                 <div className="footer-middle">
                     <div className="row">
                         <div className="col-lg-6 col-xl-4">
                             <div className="widget">
-                                <h4 className="widget-title">Contact Info</h4>
+                                <h4 className="widget-title">Company Info</h4>
 
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                            <h4 className="widget-title">ADDRESS:</h4>
-                                            <ALink href="#">1234 Street Name, City, England</ALink>
+                                            <h4 className="widget-title">LINGA CHEMICALS</h4>
+                                            <ALink href="#">3, B-1 Police Station Road, East Masi Street, Madurai, Tamil Nadu - 625001. INDIA</ALink>
                                         </div>
                                     </div>
 
-                                    <div className="col-sm-6 pl-xl-0">
+                                    {/*<div className="col-sm-6 pl-xl-0">
                                         <div className="contact-widget">
                                             <h4 className="widget-title">PHONE:</h4>
                                             <ALink href="#">(123) 456-7890</ALink>
@@ -63,11 +63,11 @@ function Footer () {
                                             <h4 className="widget-title">WORKING DAYS/HOURS:</h4>
                                             <ALink href="#">Mon - Sun / 9:00 AM - 8:00 PM</ALink>
                                         </div>
-                                    </div>
+                                    </div>*/}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-6 col-lg-3 col-xl-4">
+                       {/*} <div className="col-sm-6 col-lg-3 col-xl-4">
                             <div className="widget">
                                 <h4 className="widget-title">My Account</h4>
                                 <div className="links link-parts row">
@@ -98,23 +98,23 @@ function Footer () {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
 
                 <div className="footer-bottom d-sm-flex align-items-center">
                     <div className="footer-left">
-                        <span className="footer-copyright">Porto eCommerce. © 2021. All Rights Reserved</span>
+                        <span className="footer-copyright">LINGA CHEMICALS. © 2023. All Rights Reserved</span>
                     </div>
 
-                    <div className="footer-right ml-auto mt-1 mt-sm-0">
+                  {/*}  <div className="footer-right ml-auto mt-1 mt-sm-0">
                         <div className="payment-icons">
                             <span className="payment-icon visa" style={ { backgroundImage: `url("images/payments/payment-visa.svg")` } }></span>
                             <span className="payment-icon paypal" style={ { backgroundImage: `url("images/payments/payment-paypal.svg")` } }></span>
                             <span className="payment-icon stripe" style={ { backgroundImage: `url("images/payments/payment-stripe.png")` } }></span>
                             <span className="payment-icon verisign" style={ { backgroundImage: `url("images/payments/payment-verisign.svg")` } }></span>
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </footer>

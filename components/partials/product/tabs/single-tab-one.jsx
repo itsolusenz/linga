@@ -22,18 +22,18 @@ export default function SingleTabOne ( props ) {
                             <ALink href="#" className="nav-link">Description</ALink>
                         </Tab>
 
-                        <Tab className="nav-item">
-                            <ALink href="#" className="nav-link">Size Guide</ALink>
-                        </Tab>
+                       
 
 
                         <Tab className="nav-item">
                             <ALink href="#" className="nav-link">Additional Information</ALink>
                         </Tab>
-
                         <Tab className="nav-item">
-                            <ALink href="#" className="nav-link">Reviews ({ product.reviews })</ALink>
+                            <ALink href="#" className="nav-link">Legal Information</ALink>
                         </Tab>
+                       {/*} <Tab className="nav-item">
+                            <ALink href="#" className="nav-link">Reviews ({ product.reviews })</ALink>
+            </Tab>*/}
                     </TabList>
 
                     <TabPanel className="tab-pane fade">

@@ -21,9 +21,9 @@ export default function Header ( { adClass = '' } ) {
             <div className="header-middle sticky-header">
                 <div className="container">
                     <div className="header-left">
-                        <button className="mobile-menu-toggler" type="button" onClick={ openMobileMenu }>
+                       {/*} <button className="mobile-menu-toggler" type="button" onClick={ openMobileMenu }>
                             <i className="fas fa-bars"></i>
-                        </button>
+    </button>*/}
 
                         <ALink href="/" className="logo">
                             <img src="images/logo.svg" alt="Porto Logo" width="101" height="40" />
@@ -33,6 +33,10 @@ export default function Header ( { adClass = '' } ) {
                     </div>
 
                     <div className="header-right">
+                        <select>
+                            <option>English</option>
+                            <option>தமிழ்</option>
+                        </select>
 
                       {/*}  <SearchForm />
 

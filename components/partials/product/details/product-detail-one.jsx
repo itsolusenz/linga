@@ -147,26 +147,26 @@ function ProductDetailOne ( props ) {
                             : ""
                     }
 
-                    <div className="ratings-container">
+                    {/*<div className="ratings-container">
                         <div className="product-ratings">
                             <span className="ratings" style={ { width: `${ 20 * product.ratings }%` } }></span>
                             <span className="tooltiptext tooltip-top">{ product.ratings.toFixed( 2 ) }</span>
                         </div>
 
                         <ALink href="#" className="rating-link">( { product.reviews > 0 ? `${ product.reviews } Reviews` : 'There are no reviews yet.' } )</ALink>
-                    </div>
+                </div>*/}
 
                     <hr className="short-divider" />
 
                     <div className="price-box">
                         {
                             product.price[ 0 ] == product.price[ 1 ] ?
-                                <span className="product-price">{ '$' + product.price[ 0 ].toFixed( 2 ) }</span>
+                                <span className="product-price">M.R.P:{ '₹' + product.price[ 0 ].toFixed( 2 ) }</span>
                                 : product.variants.length > 0 ?
-                                    <span className="product-price">{ '$' + product.price[ 0 ].toFixed( 2 ) } &ndash; { '$' + product.price[ 1 ].toFixed( 2 ) }</span>
+                                 <span className="product-price">{ '₹' + product.price[ 0 ].toFixed( 2 ) } &ndash; { '₹' + product.price[ 1 ].toFixed( 2 ) }</span>
                                     : <>
-                                        <span className="old-price">{ '$' + product.price[ 1 ].toFixed( 2 ) }</span>
-                                        <span className="new-price">{ '$' + product.price[ 0 ].toFixed( 2 ) }</span>
+                                        <span className="old-price">{ '₹' + product.price[ 1 ].toFixed( 2 ) }</span>
+                                        <span className="new-price">{ '₹' + product.price[ 0 ].toFixed( 2 ) }</span>
                                     </>
                         }
                     </div>
@@ -341,11 +341,11 @@ function ProductDetailOne ( props ) {
                                         </div>
                                     </div>
 
-                                    <div className="product-action mt-0">
+                                   {/*} <div className="product-action mt-0">
                                         <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
 
                                         <a href="#" className={ `btn btn-dark add-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? attrs.sizes.length > 0 && attrs.colors.length ? '' : 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>
-                                    </div>
+                                            </div>*/}
                                 </div>
                             </div>
                         </div>
@@ -376,14 +376,14 @@ function ProductDetailOne ( props ) {
                                 : ''
                         }
 
-                        <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
+                       {/*}   <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
 
-                        <a href="#" className={ `btn btn-dark add-cart shopping-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>
+                      <a href="#" className={ `btn btn-dark add-cart shopping-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>*/}
                     </div>
 
                     <hr className="divider mb-0 mt-0" />
 
-                    <div className="product-single-share mb-3">
+                   {/*} <div className="product-single-share mb-3">
                         <label className="sr-only">Share:</label>
 
                         <div className="social-icons mr-2">
@@ -398,7 +398,7 @@ function ProductDetailOne ( props ) {
 
                         <a href="#" className={ `btn-icon-wish add-wishlist ${ isInWishlist() ? 'added-wishlist' : '' }` } onClick={ onWishlistClick } title={ `${ isInWishlist() ? 'Go to Wishlist' : 'Add to Wishlist' }` }><i
                             className="icon-wishlist-2"></i><span>{ isInWishlist() ? 'Go to Wishlist' : 'Add to Wishlist' }</span></a>
-                    </div>
+                    </div>*/}
                 </div>
             }
         </>

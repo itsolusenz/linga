@@ -413,8 +413,8 @@ export default function New() {
                 <div className="container">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
-                        <li className="breadcrumb-item"><ALink href="/shop">Shop</ALink></li>
-                        <li className="breadcrumb-item">
+                        <li className="breadcrumb-item"><ALink href="/shop">Category</ALink></li>
+                        {/*} <li className="breadcrumb-item">
                             {
                                 categories.map((item, index) => (
                                     <React.Fragment key={`category-${index}`}>
@@ -423,7 +423,7 @@ export default function New() {
                                     </React.Fragment>
                                 ))
                             }
-                        </li>
+                        </li>*/}
                         <li className="breadcrumb-item active" aria-current="page">{product[0] && product[0].name}</li>
 
                     </ol>
