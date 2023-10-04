@@ -24,11 +24,12 @@ function ProductDetailOne ( props ) {
 
     useEffect( () => {
         if ( product ) {
-            let attributes = product.variants.reduce( ( acc, cur ) => {
+            let attributes = ({ sizes: [], colors: [] }) ;
+           /* let attributes = product.variants.reduce( ( acc, cur ) => {
                 cur.size && !acc.sizes.find( size => size.size === cur.size.size ) && acc.sizes.push( cur.size );
                 cur.color && !acc.colors.find( color => color.name === cur.color.name ) && acc.colors.push( cur.color );
                 return acc;
-            }, { sizes: [], colors: [] } );
+            }, { sizes: [], colors: [] } );*/
             setAttrs( attributes );
             initState();
         }
@@ -46,10 +47,10 @@ function ProductDetailOne ( props ) {
             } else {
                 document.querySelector( `${ parent } .shopping-cart` ) && document.querySelector( `${ parent } .shopping-cart` ).classList.remove( 'disabled' );
                 document.querySelector( `${ parent } .sticky-cart .add-cart` ) && document.querySelector( `${ parent } .sticky-cart .add-cart` ).classList.remove( 'disabled' );
-                let index = product.variants.findIndex( item => {
+               /* let index = product.variants.findIndex( item => {
                     return !( item.size && item.size.size !== size ) && !( item.color && item.color.name !== color );
                 } );
-                setVariant( { ...product.variants[ index ], id: index } );
+                setVariant( { ...product.variants[ index ], id: index } );*/
             }
 
             if ( size !== null || color !== null ) {
@@ -92,11 +93,11 @@ function ProductDetailOne ( props ) {
         e.preventDefault();
 
         if ( product.stock > 0 && !e.currentTarget.classList.contains( 'disabled' ) ) {
-            if ( product.variants.length === 0 ) {
+           /* if ( product.variants.length === 0 ) {
                 props.addToCart( product, qty, -1 );
             } else {
                 props.addToCart( product, qty, variant.id );
-            }
+            }*/
         }
     }
 
@@ -139,7 +140,7 @@ function ProductDetailOne ( props ) {
             <div className={ `skel-pro skel-detail ${ adClass }` }></div>
             {
                 <div className={ `product-single-details ${ adClass }` }>
-                    <h1 className="product-title">{ product.name }</h1>
+                    <h1 className="product-title">{ product.itemname }</h1>
 
                     {
                         isNav ?
@@ -160,31 +161,30 @@ function ProductDetailOne ( props ) {
 
                     <div className="price-box">
                         {
-                            product.price[ 0 ] == product.price[ 1 ] ?
-                                <span className="product-price">M.R.P:{ '₹' + product.price[ 0 ].toFixed( 2 ) }</span>
-                                : product.variants.length > 0 ?
-                                 <span className="product-price">{ '₹' + product.price[ 0 ].toFixed( 2 ) } &ndash; { '₹' + product.price[ 1 ].toFixed( 2 ) }</span>
-                                    : <>
-                                        <span className="old-price">{ '₹' + product.price[ 1 ].toFixed( 2 ) }</span>
-                                        <span className="new-price">{ '₹' + product.price[ 0 ].toFixed( 2 ) }</span>
-                                    </>
+
+                            product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
+                                <span className="product-price">M.R.P:{ '₹' + product.price[ 0 ].mrp }</span>
+                                : 
+                                    <><span style={{display:'flex'}}> <h4> M.R.P: </h4>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[ 0 ].mrp }</span>
+                                        <span className="new-price">{ '₹' + product.price[ 0 ].salesprice }</span>
+                                        </span>  </>
                         }
                     </div>
 
                     <div className="product-desc">
-                        <p>{ product.short_description }</p>
+                        <p>{ product.itemsdesc }</p>
                     </div>
 
                     <ul className="single-info-list">
-                        {
+                       {/*} {
                             product.sku ?
                                 <li>
                                     SKU: <strong>{ product.sku }</strong>
                                 </li>
                                 : ''
-                        }
+                        }*/}
 
-                        <li>
+                       {/*} <li>
                             CATEGORY: { product.categories.map( ( item, index ) =>
                             (
                                 <React.Fragment key={ `single-cat-${ index }` }>
@@ -195,7 +195,7 @@ function ProductDetailOne ( props ) {
                                 </React.Fragment>
                             ) )
                             }
-                        </li>
+                        </li>*/}
 
                         {
                             !product.tags == null && product.tags.length > 0 ?
@@ -215,7 +215,7 @@ function ProductDetailOne ( props ) {
                         }
                     </ul>
 
-                    {
+                   {/*} {
                         product.variants.length > 0 ?
                             <div className="product-filters-container">
                                 {
@@ -290,7 +290,7 @@ function ProductDetailOne ( props ) {
                                 }
                             </div>
                             : ''
-                    }
+                    }*/}
 
                     {
                         isSticky &&
@@ -300,7 +300,7 @@ function ProductDetailOne ( props ) {
                                     <div className="sticky-img mr-4 media-with-lazy">
                                         <figure className="mb-0">
                                             <LazyLoadImage
-                                                src={ process.env.NEXT_PUBLIC_ASSET_URI + product.small_pictures[ 0 ].url }
+                                                src={ product.small_pictures[ 0 ].url }
                                                 width="100%"
                                                 height="auto"
                                                 alt="Thumbnail"
@@ -352,7 +352,7 @@ function ProductDetailOne ( props ) {
                     }
 
                     <div className="product-action">
-                        {
+                        {/*{
                             product.variants.length ?
                                 <SlideToggle collapsed={ true }>
                                     { ( { onToggle, setCollapsibleElement, toggleState } ) => (
@@ -374,7 +374,7 @@ function ProductDetailOne ( props ) {
                                     ) }
                                 </SlideToggle>
                                 : ''
-                        }
+                        }*/}
 
                        {/*}   <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
 

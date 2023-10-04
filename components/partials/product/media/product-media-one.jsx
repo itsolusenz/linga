@@ -80,7 +80,7 @@ export default function ProductMediaOne ( props ) {
                         <div className="label-group">
                             { product.is_hot ? <div className="product-label label-hot">HOT</div> : '' }
 
-                            { isSale() ? <div className="product-label label-sale">{ isSale() }</div> : '' }
+                         {/*}   { isSale() ? <div className="product-label label-sale">{ isSale() }</div> : '' }*/}
                         </div>
 
                         <OwlCarousel adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>
@@ -89,7 +89,7 @@ export default function ProductMediaOne ( props ) {
                                     <div className="product-item" key={ `product-item-${ index }` }>
                                         <Magnifier
                                             style={ { paddingTop: "100%", position: "relative" } }
-                                            imageSrc={ process.env.NEXT_PUBLIC_ASSET_URI + item.url }
+                                            imageSrc={ item.url }
                                             imageAlt="product"
                                             mouseActivation="hover"
                                             cursorStyleActive="crosshair"
@@ -110,7 +110,7 @@ export default function ProductMediaOne ( props ) {
                         {
                             product.pictures.map( ( item, index ) => (
                                 <div className="owl-dot media-with-lazy" key={ `owl-dot-${ index }` } onClick={ ( e ) => changeMediaIndex( index, e ) }>
-                                    <figure className="mb-0"><LazyLoadImage src={ process.env.NEXT_PUBLIC_ASSET_URI + item.url } alt="Thumbnail" width="100%" height="auto" className="d-block" /></figure>
+                                    <figure className="mb-0"><LazyLoadImage src={item.url } alt="Thumbnail" width="100%" height="auto" className="d-block" /></figure>
                                 </div>
                             ) )
                         }

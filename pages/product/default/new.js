@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -15,6 +15,23 @@ import RelatedProducts from '../../../components/partials/product/widgets/relate
 import ProductSidebarTwo from '../../../components/partials/product/sidebars/sidebar-two';
 
 export default function New() {
+
+    const [Poductdetails, setPoductdetails] = useState('');
+    useEffect(() => {
+        const getPoductdetails = async (a) => {
+            const id = localStorage.getItem('LOGIN_COMP_ID');
+            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&id=' + a);
+            const json = await response.json();
+            console.log(json);
+            setPoductdetails(json);
+
+
+        }
+
+
+        getPoductdetails('16');
+
+    }, [])
     /* if (!useRouter().query.slug) return (
          <div className="loading-overlay">
              <div className="bounce-loader">
@@ -406,15 +423,16 @@ export default function New() {
     /* if (error) {
          return useRouter().push('/pages/404');
      }*/
-
-    return (
-        <main className="main product-page">
-            <nav aria-label="breadcrumb" className="breadcrumb-nav">
-                <div className="container">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
-                        <li className="breadcrumb-item"><ALink href="/shop">Category</ALink></li>
-                        {/*} <li className="breadcrumb-item">
+    console.log('Poductdetails.length', Poductdetails.length)
+    if (Poductdetails.length > '0') {
+        return (
+            <main className="main product-page">
+                <nav aria-label="breadcrumb" className="breadcrumb-nav">
+                    <div className="container">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
+                            <li className="breadcrumb-item"><ALink href="/shop">{Poductdetails[0] && Poductdetails[0].itemid}</ALink></li>
+                            {/*} <li className="breadcrumb-item">
                             {
                                 categories.map((item, index) => (
                                     <React.Fragment key={`category-${index}`}>
@@ -424,11 +442,65 @@ export default function New() {
                                 ))
                             }
                         </li>*/}
-                        <li className="breadcrumb-item active" aria-current="page">{product[0] && product[0].name}</li>
+                            <li className="breadcrumb-item active" aria-current="page">{Poductdetails[0] && Poductdetails[0].itemname}</li>
 
-                    </ol>
+                        </ol>
+                    </div>
+                </nav>
+                <div className={`container skeleton-body skel-shop-products ${loading ? '' : 'loaded'}`}>
+                    <div className="row">
+                        <div className="col-lg-9 main-content pb-2">
+                            <div className={`product-single-container product-single-default`}>
+                                <div className="row">
+
+                                    <ProductMediaOne product={Poductdetails[0]} />
+                                    <ProductDetailOne
+                                        product={Poductdetails[0]}
+
+                                    />
+                                    {/*}  prev={product[0] && data.product.prev}
+                        next={product[0] && data.product.next}*/}
+                                </div>
+                            </div>
+
+                            <SingleTabOne product={Poductdetails[0]} />
+                        </div>
+
+                        <ProductSidebarTwo />
+                    </div>
+
+                    <RelatedProducts
+                        adClass="mb-1"
+                        loading={loading}
+                        products={related}
+                    />
                 </div>
-            </nav>
+            </main >
+        );
+    }
+    else {
+        return (
+            <main className="main product-page">
+                {/* <nav aria-label="breadcrumb" className="breadcrumb-nav">
+                    <div className="container">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
+                            <li className="breadcrumb-item"><ALink href="/shop">Category</ALink></li>
+                            <li className="breadcrumb-item">
+                            {
+                                categories.map((item, index) => (
+                                    <React.Fragment key={`category-${index}`}>
+                                        <ALink href={{ pathname: "/shop", query: { slug: item.slug } }}>{item.name}</ALink>
+                                        {index < categories.length - 1 ? ',' : ''}
+                                    </React.Fragment>
+                                ))
+                            }
+                        </li>
+                <li className="breadcrumb-item active" aria-current="page">{product[0] && product[0].name}</li>
+
+            </ol>
+                    </div >
+                </nav >
             <div className={`container skeleton-body skel-shop-products ${loading ? '' : 'loaded'}`}>
                 <div className="row">
                     <div className="col-lg-9 main-content pb-2">
@@ -440,24 +512,25 @@ export default function New() {
                                     product={product[0]}
 
                                 />
-                                {/*}  prev={product[0] && data.product.prev}
-                        next={product[0] && data.product.next}*/}
-                            </div>
-                        </div>
-
-                        <SingleTabOne product={product[0]} />
-                    </div>
-
-                    <ProductSidebarTwo />
-                </div>
-
-                <RelatedProducts
-                    adClass="mb-1"
-                    loading={loading}
-                    products={related}
-                />
+                               
             </div>
-        </main >
-    )
+                        </div >
+
+            <SingleTabOne product={product[0]} />
+                    </div >
+
+            <ProductSidebarTwo />
+                </div >
+
+            <RelatedProducts
+                adClass="mb-1"
+                loading={loading}
+                products={related}
+            />
+            </div > */}
+            </main >
+        );
+
+    }
 }
 

@@ -29,6 +29,9 @@ export default function SingleTabOne ( props ) {
                             <ALink href="#" className="nav-link">Additional Information</ALink>
                         </Tab>
                         <Tab className="nav-item">
+                            <ALink href="#" className="nav-link">Safety Information</ALink>
+                        </Tab>
+                        <Tab className="nav-item">
                             <ALink href="#" className="nav-link">Legal Information</ALink>
                         </Tab>
                        {/*} <Tab className="nav-item">
@@ -38,71 +41,40 @@ export default function SingleTabOne ( props ) {
 
                     <TabPanel className="tab-pane fade">
                         <div className="product-desc-content">
-                            <p>{ product.short_description }</p>
-                            <ul>
-                                <li>Any Product types that You want - Simple, Configurable</li>
-                                <li>Downloadable/Digital Products, Virtual Products</li>
-                                <li>Inventory Management with Backordered items</li>
-                            </ul>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                        </div>
+                            <p>{ product.itemdesc }</p>
+                              </div>
                     </TabPanel>
 
 
                     <TabPanel className="tab-pane fade">
-                        <div className="product-size-content">
+                   
+                       <div className="product-size-content">
                             <div className="row">
-                                <div className="col-md-4">
-                                    <img src="images/products/single/body-shape.png" alt="body shape" width="217" height="398" />
-                                </div>
-
+                               
                                 <div className="col-md-8">
-                                    <table className="table table-size">
-                                        <thead>
+                                   <table className="table table-size">
+                                        {/*} <thead>
                                             <tr>
                                                 <th>SIZE</th>
                                                 <th>CHEST (in.)</th>
                                                 <th>WAIST (in.)</th>
                                                 <th>HIPS (in.)</th>
                                             </tr>
-                                        </thead>
+        </thead>*/}               
                                         <tbody>
-                                            <tr>
-                                                <td>XS</td>
-                                                <td>34-36</td>
-                                                <td>27-29</td>
-                                                <td>34.5-36.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>S</td>
-                                                <td>36-38</td>
-                                                <td>29-31</td>
-                                                <td>36.5-38.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>M</td>
-                                                <td>38-40</td>
-                                                <td>31-33</td>
-                                                <td>38.5-40.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>L</td>
-                                                <td>40-42</td>
-                                                <td>33-36</td>
-                                                <td>40.5-43.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>XL</td>
-                                                <td>42-45</td>
-                                                <td>36-40</td>
-                                                <td>43.5-47.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>XLL</td>
-                                                <td>45-48</td>
-                                                <td>40-44</td>
-                                                <td>47.5-51.5</td>
-                                            </tr>
+
+                                            { product.add_details.map((a,i)=>
+
+                                                            <tr key={i}>
+                                                            <td>{a.adcolumn}</td>
+                                                            <td>{a.advalue}</td>
+                                                           
+                                                            </tr>
+
+                                            )}
+                                           
+                                           
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -110,9 +82,18 @@ export default function SingleTabOne ( props ) {
                         </div>
                     </TabPanel>
 
-
+                    
                     <TabPanel className="tab-pane fade">
-                        <table className="table table-striped mt-2">
+                    <div className="product-desc-content">
+                            <p>{ product.safetyinfo }</p>
+                    </div>
+                       
+                    </TabPanel>
+                    <TabPanel className="tab-pane fade">
+                    <div className="product-desc-content">
+                            <p>{ product.legaldisclaimer }</p>
+                    </div>
+                       {/*} <table className="table table-striped mt-2">
                             <tbody>
                                 <tr>
                                     <th>Weight</th>
@@ -134,10 +115,10 @@ export default function SingleTabOne ( props ) {
                                     <td>Large, Medium, Small</td>
                                 </tr>
                             </tbody>
-                        </table>
+                    </table>*/}
                     </TabPanel>
 
-                    <TabPanel className="tab-pane fade">
+                  {/*}  <TabPanel className="tab-pane fade">
                         <div className="product-reviews-content">
                             {
                                 product.reviews !== 0 ?
@@ -236,7 +217,7 @@ export default function SingleTabOne ( props ) {
                                 </div>
                             </div>
                         </div>
-                    </TabPanel>
+                    </TabPanel>*/}
                 </Tabs>
             }
         </>
