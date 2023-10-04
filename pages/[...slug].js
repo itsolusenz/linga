@@ -3,25 +3,29 @@ import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
 
 // Import Apollo Server and Query
-import withApollo from '../../../server/apollo';
-import { GET_PRODUCT } from '../../../server/queries';
+import withApollo from '../server/apollo';
+import { GET_PRODUCT } from '../server/queries';
 
 // Import Custom Component
-import ALink from '../../../components/common/ALink';
-import ProductMediaOne from '../../../components/partials/product/media/product-media-one';
-import ProductDetailOne from '../../../components/partials/product/details/product-detail-one';
-import SingleTabOne from '../../../components/partials/product/tabs/single-tab-one';
-import RelatedProducts from '../../../components/partials/product/widgets/related-products';
-import ProductSidebarTwo from '../../../components/partials/product/sidebars/sidebar-two';
+import ALink from '../components/common/ALink';
+import ProductMediaOne from '../components/partials/product/media/product-media-one';
+import ProductDetailOne from '../components/partials/product/details/product-detail-one';
+import SingleTabOne from '../components/partials/product/tabs/single-tab-one';
+import RelatedProducts from '../components/partials/product/widgets/related-products';
+import ProductSidebarTwo from '../components/partials/product/sidebars/sidebar-two';
 
 export default function New() {
-    const slug = useRouter().query;
+    const slug = useRouter().query.slug;
     console.log("slug", slug)
+    const slug1 = slug[0];
+    const slug2 = slug[1];
+    console.log("slug1", slug1)
+    console.log("slug2", slug2)
     const [Poductdetails, setPoductdetails] = useState('');
     useEffect(() => {
-        const getPoductdetails = async (a) => {
+        const getPoductdetails = async () => {
             const id = localStorage.getItem('LOGIN_COMP_ID');
-            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&id=' + a);
+            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&itemname=' + slug1 + '&language=' + slug2);
             const json = await response.json();
             console.log(json);
             setPoductdetails(json);
@@ -30,9 +34,9 @@ export default function New() {
         }
 
 
-        getPoductdetails('16');
+        getPoductdetails();
 
-    }, [])
+    }, [slug1, slug2])
     /* if (!useRouter().query.slug) return (
          <div className="loading-overlay">
              <div className="bounce-loader">

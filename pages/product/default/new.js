@@ -15,7 +15,8 @@ import RelatedProducts from '../../../components/partials/product/widgets/relate
 import ProductSidebarTwo from '../../../components/partials/product/sidebars/sidebar-two';
 
 export default function New() {
-
+    const slug = useRouter().query;
+    console.log("slug", slug)
     const [Poductdetails, setPoductdetails] = useState('');
     useEffect(() => {
         const getPoductdetails = async (a) => {
@@ -42,7 +43,7 @@ export default function New() {
          </div>
      );*/
     //const slug = useRouter().query.slug;
-    const slug = "sports-watch";
+    // const slug = "sports-watch";
     //const { data, loading, error } = useQuery(GET_PRODUCT, { variables: { slug } });
     const product = [{
         "id": 12,

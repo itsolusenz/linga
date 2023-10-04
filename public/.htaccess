@@ -8,7 +8,7 @@ RewriteRule ^shop/(3cols|4cols|5cols|6cols|7cols|8cols) shop/[grid]/index.html?g
 RewriteRule ^product/(default|center|custom-tab|extended|full-width|grid|left-sidebar|right-sidebar|sticky-both|sticky-cart|sticky-info|transparent)/(.*) product/$1/[slug]/index.html?slug=$2 [L]
 RewriteRule ^pages/blog/(index.html)?$ - [L]
 RewriteRule ^pages/blog/(.+) pages/blog/[slug]/index.html?slug=$1 [L]
-
+RewriteRule ^(.+) index.js?slug=$1 [L]
 
 # One month for most static assets
 <filesMatch ".(css|jpg|jpeg|png|gif|js|ico|woff2|ttf|woff)$">
