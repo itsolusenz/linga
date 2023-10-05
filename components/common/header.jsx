@@ -30,7 +30,7 @@ export default function Header ( { adClass = '' } ) {
 
     }, [slug1,slug2])
     const Callfunc=(id,code)=>{
-        alert(code);
+        
          const code1 = code;
         let res = code1.toLowerCase();
 

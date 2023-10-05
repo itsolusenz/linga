@@ -25,7 +25,7 @@ export default function New() {
     const [relateddetails, setrelateddetails] = useState('');
     useEffect(() => {
         const getrelatedProducts = async (a) => {
-           
+
             const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&itemgroupid=' + a);
             const json = await response.json();
             console.log('related', json);
@@ -34,7 +34,8 @@ export default function New() {
 
         }
         const getPoductdetails = async () => {
-            const SITE_LANG = localStorage.getItem('SITE_LANG');
+            // const SITE_LANG = localStorage.getItem('SITE_LANG');
+
             const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2);
             const json = await response.json();
             console.log(json);
