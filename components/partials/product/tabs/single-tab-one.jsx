@@ -21,10 +21,6 @@ export default function SingleTabOne ( props ) {
                         <Tab className="nav-item">
                             <ALink href="#" className="nav-link">Description</ALink>
                         </Tab>
-
-                       
-
-
                         <Tab className="nav-item">
                             <ALink href="#" className="nav-link">Additional Information</ALink>
                         </Tab>

@@ -35,11 +35,11 @@ const App = ({ Component, pageProps }) => {
                     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-                    <title>Porto - React eCommerce Template</title>
+                    <title>Linga Chemicals</title>
 
-                    <meta name="keywords" content="React Template" />
-                    <meta name="description" content="Porto - React eCommerce Template" />
-                    <meta name="author" content="SW-THEMES" />
+                    <meta name="keywords" content="linga chemicals,Micronutrient Fertilizers,The Largest Manufacturer of  Micronutrient Fertilizers  in  South India" />
+                    <meta name="description" content="Linga Chemicals is on a global mission to support the back bone of India; Agriculture. Our world class and environmental friendly products help the farmers in producing greater yield." />
+                    <meta name="author" content="linga chemicals" />
                 </Helmet>
 
                 <Layout>

@@ -25,7 +25,7 @@ function ProductOne(props) {
     function isInWishlist() {
         return product && props.wishlist.findIndex(item => item.slug === product.slug) > -1;
     }
-
+console.log('product',product);
     function onWishlistClick(e) {
         e.preventDefault();
         if (!isInWishlist()) {
@@ -56,37 +56,37 @@ function ProductOne(props) {
     return (
         <div className={`product-default inner-quickview inner-icon media-with-lazy ${adClass}`}>
             <figure>
-                <ALink href={`/product/${link}/${product.slug}`}>
+                <ALink href={`/${product.url}/en`}>
                     <div className="lazy-overlay"></div>
 
-                    <LazyLoadImage
+                    {/*} <LazyLoadImage
                         alt="product"
-                        src={process.env.NEXT_PUBLIC_ASSET_URI + product.pictures[0].url}
+                        src={product.pictures[0].url}
                         threshold={500}
                         effect="black and white"
                         width="100%"
                         height="auto"
                     />
-                    {
+                   {
                         product.pictures.length >= 2 ?
                             <LazyLoadImage
                                 alt="product"
-                                src={process.env.NEXT_PUBLIC_ASSET_URI + product.pictures[1].url}
+                                src={product.pictures[1].url}
                                 threshold={500}
                                 effect="black and white"
                                 wrapperClassName="product-image-hover"
                             />
                             : ""
-                    }
+                    }*/}
                 </ALink>
 
                 <div className="label-group">
                     {product.is_hot ? <div className="product-label label-hot">HOT</div> : ''}
 
-                    {isSale() ? <div className="product-label label-sale">{isSale()}</div> : ''}
+                  {/*  {isSale() ? <div className="product-label label-sale">{isSale()}</div> : ''}*/}
                 </div>
 
-                <div className="btn-icon-group">
+               {/*} <div className="btn-icon-group">
                     {
                         product.variants.length > 0 ?
                             <ALink href={`/product/default/${product.slug}`} className="btn-icon btn-add-cart"><i
@@ -99,14 +99,14 @@ function ProductOne(props) {
                 {
                     product.until && product.until !== null &&
                     <CountDown product={product} />
-                }
+                }*/}
 
                 <a href="#" className="btn-quickview" title="Quick View" onClick={onQuickViewClick}>Quick View</a>
             </figure>
 
             <div className="product-details">
                 <div className="category-wrap">
-                    <div className="category-list">
+                   {/*} <div className="category-list">
                         {
                             product.categories ?
                                 product.categories.map((item, index) => (
@@ -118,13 +118,13 @@ function ProductOne(props) {
                                     </React.Fragment>
                                 )) : ""
                         }
-                    </div>
+                    </div>*/}
 
-                    <a href="#" className={`btn-icon-wish ${isInWishlist() ? 'added-wishlist' : ''}`} onClick={onWishlistClick} title={`${isInWishlist() === true ? 'Go to Wishlist' : 'Add to Wishlist'}`}><i className="icon-heart"></i></a>
+                  {/*}  <a href="#" className={`btn-icon-wish ${isInWishlist() ? 'added-wishlist' : ''}`} onClick={onWishlistClick} title={`${isInWishlist() === true ? 'Go to Wishlist' : 'Add to Wishlist'}`}><i className="icon-heart"></i></a>*/}
                 </div>
 
                 <h3 className="product-title">
-                    <ALink href={`/product/default/${product.slug}`}>{product.name}</ALink>
+                    <ALink href={`/${product.url}/en`}>{product.itemname}</ALink>
                 </h3>
 
                {/*} <div className="ratings-container">
@@ -133,8 +133,21 @@ function ProductOne(props) {
                         <span className="tooltiptext tooltip-top">{product.ratings.toFixed(2)}</span>
                     </div>
                     </div>*/}
+                      <div className="price-box">
+                        {product.price.length > 0 ?
 
-                <div className="price-box">
+                           ( product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
+                                <span className="product-price">M.R.P:{ '₹' +  product.price[ 0 ].mrp ? product.price[ 0 ].mrp :"0.00"  }</span>
+                                : 
+                                    <><span style={{display:'flex'}}> <h4> M.R.P: </h4>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[0].mrp}</span>
+                                        <span className="new-price">{ '₹' + product.price[0].salesprice}</span>
+                                        </span>  </>)
+
+                                        :
+                                        <><span className="product-price">M.R.P:0.00</span></>
+                        }
+                    </div>
+               {/*} <div className="price-box">
                     {
                         product.price[0] == product.price[1] ?
                             <span className="product-price">{'₹' + product.price[0].toFixed(2)}</span>
@@ -145,7 +158,7 @@ function ProductOne(props) {
                                     <span className="product-price">{'₹' + product.price[0].toFixed(2)}</span>
                                 </>
                     }
-                </div>
+                </div>*/}
             </div>
         </div>
     )

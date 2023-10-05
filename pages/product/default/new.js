@@ -25,6 +25,9 @@ export default function New() {
             const json = await response.json();
             console.log(json);
             setPoductdetails(json);
+            if (json[0].count == '0') {
+                window.location.href = "/404";
+            }
 
 
         }

@@ -22,21 +22,40 @@ export default function New() {
     console.log("slug1", slug1)
     console.log("slug2", slug2)
     const [Poductdetails, setPoductdetails] = useState('');
+    const [relateddetails, setrelateddetails] = useState('');
     useEffect(() => {
+        const getrelatedProducts = async (a) => {
+           
+            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&itemgroupid=' + a);
+            const json = await response.json();
+            console.log('related', json);
+            setrelateddetails(json);
+
+
+        }
         const getPoductdetails = async () => {
-            const id = localStorage.getItem('LOGIN_COMP_ID');
-            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&itemname=' + slug1 + '&language=' + slug2);
+            const SITE_LANG = localStorage.getItem('SITE_LANG');
+            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2);
             const json = await response.json();
             console.log(json);
-            setPoductdetails(json);
+            if (json[0].count == '0') {
+                window.location.href = "/404";
+            }
 
+
+            setPoductdetails(json);
+            getrelatedProducts(json[0].groupid)
 
         }
 
 
         getPoductdetails();
 
+
     }, [slug1, slug2])
+
+
+
     /* if (!useRouter().query.slug) return (
          <div className="loading-overlay">
              <div className="bounce-loader">
@@ -425,11 +444,15 @@ export default function New() {
     const loading = false;
     // console.log(data.product.prev, '-pre---');
 
-    /* if (error) {
-         return useRouter().push('/pages/404');
-     }*/
-    console.log('Poductdetails.length', Poductdetails.length)
-    if (Poductdetails.length > '0') {
+
+
+
+
+
+    // console.log('Poductdetails.length', Poductdetails.length)
+    if (Poductdetails.length > '0' && Poductdetails[0].count > '0') {
+
+
         return (
             <main className="main product-page">
                 <nav aria-label="breadcrumb" className="breadcrumb-nav">
@@ -438,15 +461,15 @@ export default function New() {
                             <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
                             <li className="breadcrumb-item"><ALink href="/shop">{Poductdetails[0] && Poductdetails[0].itemid}</ALink></li>
                             {/*} <li className="breadcrumb-item">
-                            {
-                                categories.map((item, index) => (
-                                    <React.Fragment key={`category-${index}`}>
-                                        <ALink href={{ pathname: "/shop", query: { slug: item.slug } }}>{item.name}</ALink>
-                                        {index < categories.length - 1 ? ',' : ''}
-                                    </React.Fragment>
-                                ))
-                            }
-                        </li>*/}
+                                    {
+                                        categories.map((item, index) => (
+                                            <React.Fragment key={`category-${index}`}>
+                                                <ALink href={{ pathname: "/shop", query: { slug: item.slug } }}>{item.name}</ALink>
+                                                {index < categories.length - 1 ? ',' : ''}
+                                            </React.Fragment>
+                                        ))
+                                    }
+                                </li>*/}
                             <li className="breadcrumb-item active" aria-current="page">{Poductdetails[0] && Poductdetails[0].itemname}</li>
 
                         </ol>
@@ -464,7 +487,7 @@ export default function New() {
 
                                     />
                                     {/*}  prev={product[0] && data.product.prev}
-                        next={product[0] && data.product.next}*/}
+                                next={product[0] && data.product.next}*/}
                                 </div>
                             </div>
 
@@ -477,11 +500,12 @@ export default function New() {
                     <RelatedProducts
                         adClass="mb-1"
                         loading={loading}
-                        products={related}
+                        products={relateddetails}
                     />
                 </div>
             </main >
         );
+
     }
     else {
         return (

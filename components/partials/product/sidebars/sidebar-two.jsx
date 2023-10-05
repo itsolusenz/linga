@@ -324,9 +324,9 @@ const data =[{
                     }
 
                     <div className="widget widget-featured">
-                        <h3 className="widget-title mb-0">Featured</h3>
+                         {/*} <h3 className="widget-title mb-0">Featured</h3>
 
-                        <div className="widget-body">
+                      <div className="widget-body">
                             <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
                                 <div className="featured-col">
                                     {
@@ -350,7 +350,7 @@ const data =[{
                                     ))}
                                 </div>
                             </OwlCarousel>
-                        </div>
+                                    </div>*/}
                     </div>
                 </StickyBox>
             </aside>

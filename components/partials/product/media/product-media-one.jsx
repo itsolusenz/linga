@@ -85,11 +85,11 @@ export default function ProductMediaOne ( props ) {
 
                         <OwlCarousel adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>
                             {
-                                product.large_pictures.map( ( item, index ) => (
+                                product.pictures.map( ( item, index ) => (
                                     <div className="product-item" key={ `product-item-${ index }` }>
                                         <Magnifier
                                             style={ { paddingTop: "100%", position: "relative" } }
-                                            imageSrc={ item.url }
+                                            imageSrc={ item.large_url }
                                             imageAlt="product"
                                             mouseActivation="hover"
                                             cursorStyleActive="crosshair"

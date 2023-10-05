@@ -300,7 +300,7 @@ function ProductDetailOne ( props ) {
                                     <div className="sticky-img mr-4 media-with-lazy">
                                         <figure className="mb-0">
                                             <LazyLoadImage
-                                                src={ product.small_pictures[ 0 ].url }
+                                                src={ product.pictures[ 0 ].url }
                                                 width="100%"
                                                 height="auto"
                                                 alt="Thumbnail"

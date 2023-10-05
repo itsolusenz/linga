@@ -1,3 +1,5 @@
+import React, { useEffect, useState, useRef } from 'react';
+
 import { useRouter } from 'next/router';
 
 // Import Custom Component
@@ -5,10 +7,51 @@ import ALink from "./ALink";
 import CartMenu from "./partials/cart-menu";
 import MainMenu from "./partials/main-menu";
 import SearchForm from "./partials/search-form";
-
 export default function Header ( { adClass = '' } ) {
     const router = useRouter();
+    const [languagelist, setlanguagelist] = useState([]);
+    const slug = useRouter().query.slug;
+    console.log("slug", slug)
+    const slug1 = slug[0];
+    const slug2 = slug[1];
+    useEffect(() => {
+        const getlanguagelist = async () => {
+           
+            const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=language&viewtype=listview');
+            const json = await response.json();
+            console.log(json,'--------');
+            setlanguagelist(json);
+            
 
+        }
+
+        
+        getlanguagelist();
+
+    }, [slug1,slug2])
+    const Callfunc=(id,code)=>{
+        alert(code);
+         const code1 = code;
+        let res = code1.toLowerCase();
+
+        localStorage.setItem("SITE_LANG",res);
+        localStorage.setItem("SITE_LANGID",id);
+        if(slug2 == res)
+        {
+     
+        }
+        else
+        {
+            let url = "/"+slug1+'/'+res;
+            console.log('url',url);
+            window.location.href=url;
+          //  return useRouter().push(url);
+        }
+
+        
+        
+
+    }
     function openMobileMenu ( e ) {
         e.preventDefault();
         document.querySelector( "body" ).classList.toggle( "mmenu-active" );
@@ -31,20 +74,40 @@ export default function Header ( { adClass = '' } ) {
 
                        {/*<MainMenu />*/}
                     </div>
+                    <div className="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
+{languagelist.length>0 &&
+                    <div className="header-dropdown mr-auto mr-sm-3 mr-md-0 pl-2">
+                           
+                               {languagelist.map((a,inc)=> 
+                                  localStorage.getItem("SITE_LANGID") == a.id &&
 
-                    <div className="header-right">
-                        <select>
-                            <option>English</option>
-                            <option>தமிழ்</option>
-                        </select>
+                                  <ALink href="#"> <img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
 
-                      {/*}  <SearchForm />
+                                
+                               )}
+                           
+                            <div className="header-menu">
+                               
+                               
+                                <ul>
+                                {languagelist.map((a,inc)=>
+                                <li onClick={()=>Callfunc(a.id,a.ShortCode)}><ALink href="#"><img src={a.image} width={20} height={20}/>{a.LanguageName}</ALink>
+                                </li>
+                                )}
+                                     </ul>
+                            </div>
+                    </div>
+}
+                   {/*}  <div className="header-right">
+                        
+                       <SearchForm />
 
                         <ALink href="/pages/login" className="header-icon header-icon-user"><i className="icon-user-2"></i></ALink>
 
                         <ALink href="/pages/wishlist" className="header-icon header-icon-wishlist"><i className="icon-wishlist-2"></i></ALink>
 
-    <CartMenu />*/}
+    <CartMenu />
+                    </div>*/}
                     </div>
 
                 </div>
