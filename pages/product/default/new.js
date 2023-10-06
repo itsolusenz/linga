@@ -19,7 +19,10 @@ export default function New() {
     console.log("slug", slug)
     const [Poductdetails, setPoductdetails] = useState('');
     useEffect(() => {
+
         window.location.href = "/404";
+
+
         const getPoductdetails = async (a) => {
             const id = localStorage.getItem('LOGIN_COMP_ID');
             const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&id=' + a);

@@ -82,16 +82,19 @@ export default function Header ( { adClass = '' } ) {
                        {/*<MainMenu />*/}
                     </div>
                     <div className="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
-{languagelist.length>0 &&
+                    {languagelist.length>0 && 
                     <div className="header-dropdown mr-auto mr-sm-3 mr-md-0 pl-2">
-                           
-                               {languagelist.map((a,inc)=> 
+                           {slug2!='' && localStorage.getItem("SITE_LANGID")!=null && localStorage.getItem("SITE_LANGID")!=undefined ?
+                               languagelist.map((a,inc)=> 
                                   localStorage.getItem("SITE_LANGID") == a.id &&
 
                                   <ALink href="#"> <img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
-
                                 
-                               )}
+                               )
+                            :
+                            <ALink href="#"> <img src={languagelist[0].image} width={20} height={20}/>{languagelist[0].ShortCode}</ALink>
+
+                            }
                            
                             <div className="header-menu">
                                
@@ -104,7 +107,7 @@ export default function Header ( { adClass = '' } ) {
                                      </ul>
                             </div>
                     </div>
-}
+                    }
                    {/*}  <div className="header-right">
                         
                        <SearchForm />
