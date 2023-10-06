@@ -495,7 +495,7 @@ export default function New() {
                             <SingleTabOne product={Poductdetails[0]} />
                         </div>
 
-                        <ProductSidebarTwo />
+                        <ProductSidebarTwo product={Poductdetails[0]} />
                     </div>
 
                     <RelatedProducts

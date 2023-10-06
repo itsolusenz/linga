@@ -15,9 +15,10 @@ import OwlCarousel from '../../../features/owl-carousel';
 import { widgetFeaturedProductSlider } from '../../../../utils/data/slider';
 
 function ProductSidebarTwo(props) {
-    const { adClass = "" } = props;
+    const { adClass = "", product } = props;
    // const { data, loading, error } = useQuery(GET_SHOP_SIDEBAR_DATA, { variables: { demo: 4, featured: true } });
-//console.log(loading,'---');
+console.log(product,'product');
+//alert();
 const loading =false;
 const data =[{
     "categories": [
@@ -324,9 +325,27 @@ const data =[{
                     }
 
                     <div className="widget widget-featured">
-                         {/*} <h3 className="widget-title mb-0">Featured</h3>
+                         <h3 className="widget-title mb-0">Videos</h3>
+                         <div className="widget-body">
+                            <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
+                                <div className="featured-col">
+                               { product.videos.map((item, index) => (
+                                                <ProductThree
+                                                    product={item}
+                                                    key={"product-three" + index}
+                                                />
+                                            ))}
+                                </div>
 
-                      <div className="widget-body">
+                                <div className="featured-col">
+                                    {data[0] && data[0].featured.map((item, index) => (
+                                        <ProductThree product={item} key={`featured-${index}`} />
+                                    ))}
+                                </div>
+                            </OwlCarousel>
+                                    </div>
+
+                     {/*}  <div className="widget-body">
                             <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
                                 <div className="featured-col">
                                     {
