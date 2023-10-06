@@ -1,7 +1,7 @@
 import React from 'react';
 import ALink from '../../../common/ALink';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-
+import { EditorState, ContentState, convertFromHTML, convertToRaw } from 'draft-js'
 export default function SingleTabOne ( props ) {
     const { adClass = "", product } = props;
 
@@ -10,7 +10,31 @@ export default function SingleTabOne ( props ) {
         document.querySelector( '.add-product-review .active' ) && document.querySelector( '.add-product-review .active' ).classList.remove( 'active' );
         e.currentTarget.classList.add( 'active' );
     }
+   {/*} const createEditorStateFromHTML = (html) => {
 
+        html = html.replace(/^"|"$/g, '');
+  
+   
+  
+        // Clean up any unwanted characters
+  
+        html = html.replace(/\\"/g, '"'); // Remove escaped double quotes
+  
+        html = html.replace(/\\n/g, ''); // Remove escaped newline characters
+  
+        const blocksFromHTML = convertFromHTML(html);
+  
+        const contentState = ContentState.createFromBlockArray(
+  
+          blocksFromHTML.contentBlocks,
+  
+          blocksFromHTML.entityMap
+  
+        );
+  
+        return EditorState.createWithContent(contentState);
+  
+      };*/}
     return (
         <>
             <div className="skel-pro-tabs"></div>
@@ -81,7 +105,9 @@ export default function SingleTabOne ( props ) {
                     
                     <TabPanel className="tab-pane fade">
                     <div className="product-desc-content">
-                            <p>{ product.safetyinfo }</p>
+                    
+                            <div dangerouslySetInnerHTML={{ __html: `${product.safetyinfo}`}}/>      
+                             
                     </div>
                        
                     </TabPanel>

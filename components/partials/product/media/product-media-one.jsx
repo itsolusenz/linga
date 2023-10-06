@@ -55,11 +55,11 @@ export default function ProductMediaOne ( props ) {
     }
 
     function moveNextPhoto () {
-        setPhotoIndex( ( photoIndex + 1 ) % product.large_pictures.length );
+        setPhotoIndex( ( photoIndex + 1 ) % product.pictures.length );
     }
 
     function movePrevPhoto () {
-        setPhotoIndex( ( photoIndex + product.large_pictures.length - 1 ) % product.large_pictures.length );
+        setPhotoIndex( ( photoIndex + product.pictures.length - 1 ) % product.pictures.length );
     }
 
     function changeMediaIndex ( index, e ) {
@@ -119,9 +119,9 @@ export default function ProductMediaOne ( props ) {
                     {
                         openLB && (
                             <LightBox
-                                mainSrc={ process.env.NEXT_PUBLIC_ASSET_URI + product.large_pictures[ photoIndex ].url }
-                                prevSrc={ process.env.NEXT_PUBLIC_ASSET_URI + product.large_pictures[ ( photoIndex + product.large_pictures.length - 1 ) % product.large_pictures.length ].url }
-                                nextSrc={ process.env.NEXT_PUBLIC_ASSET_URI + product.large_pictures[ ( photoIndex + 1 ) % product.large_pictures.length ].url }
+                                mainSrc={ product.pictures[ photoIndex ].large_url }
+                                prevSrc={ product.pictures[ ( photoIndex + product.pictures.length - 1 ) % product.pictures.length ].large_url }
+                                nextSrc={ product.pictures[ ( photoIndex + 1 ) % product.pictures.length ].large_url }
                                 onCloseRequest={ closeLightBox }
                                 onMoveNextRequest={ moveNextPhoto }
                                 onMovePrevRequest={ movePrevPhoto }
