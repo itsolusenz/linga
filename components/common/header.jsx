@@ -10,11 +10,18 @@ import SearchForm from "./partials/search-form";
 export default function Header ( { adClass = '' } ) {
     const router = useRouter();
     const [languagelist, setlanguagelist] = useState([]);
-    const slug = useRouter().query.slug;
-    console.log("slug", slug)
-    const slug1 = slug[0];
-    const slug2 = slug[1];
+    let slug1='';
+    let slug2='';
+    if(useRouter().query.slug)
+    {
+        const slug = useRouter().query.slug;
+        console.log("slug", slug)
+         slug1 = slug[0];
+         slug2 = slug[1];
+    }
+    
     useEffect(() => {
+       
         const getlanguagelist = async () => {
            
             const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=language&viewtype=listview');
@@ -27,8 +34,8 @@ export default function Header ( { adClass = '' } ) {
 
         
         getlanguagelist();
-
-    }, [slug1,slug2])
+        
+    }, [])
     const Callfunc=(id,code)=>{
         
          const code1 = code;
