@@ -86,9 +86,8 @@ export default function Header ( { adClass = '' } ) {
                     <div className="header-dropdown mr-auto mr-sm-3 mr-md-0 pl-2">
                            {slug2!='' && localStorage.getItem("SITE_LANGID")!=null && localStorage.getItem("SITE_LANGID")!=undefined ?
                                languagelist.map((a,inc)=> 
-                                  localStorage.getItem("SITE_LANGID") == a.id &&
-
-                                  <ALink href="#"> <img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
+                                   a.ShortCode == slug2.toUpperCase() &&
+                                   <ALink href="#"> <img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
                                 
                                )
                             :

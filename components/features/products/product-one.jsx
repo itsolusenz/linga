@@ -50,7 +50,7 @@ console.log('product',product);
 
     function onQuickViewClick(e) {
         e.preventDefault();
-        props.showQuickView(product.slug);
+        props.showQuickView(product);
     }
 
     return (
@@ -59,7 +59,7 @@ console.log('product',product);
                 <ALink href={`/${product.url}/en`}>
                     <div className="lazy-overlay"></div>
 
-                    {/*} <LazyLoadImage
+                     <LazyLoadImage
                         alt="product"
                         src={product.pictures[0].url}
                         threshold={500}
@@ -67,7 +67,7 @@ console.log('product',product);
                         width="100%"
                         height="auto"
                     />
-                   {
+                  {
                         product.pictures.length >= 2 ?
                             <LazyLoadImage
                                 alt="product"
@@ -77,7 +77,7 @@ console.log('product',product);
                                 wrapperClassName="product-image-hover"
                             />
                             : ""
-                    }*/}
+                    }
                 </ALink>
 
                 <div className="label-group">
@@ -99,9 +99,9 @@ console.log('product',product);
                 {
                     product.until && product.until !== null &&
                     <CountDown product={product} />
-                }*/}
+                }
 
-                <a href="#" className="btn-quickview" title="Quick View" onClick={onQuickViewClick}>Quick View</a>
+                <a href="#" className="btn-quickview" title="Quick View" onClick={onQuickViewClick}>Quick View</a>*/}
             </figure>
 
             <div className="product-details">

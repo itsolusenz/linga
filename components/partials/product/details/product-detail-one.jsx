@@ -172,11 +172,12 @@ function ProductDetailOne ( props ) {
                     </div>
 
                     <div className="product-desc">
-                        <p>{ product.itemsdesc }</p>
+                    <div dangerouslySetInnerHTML={{ __html: `${product.itemsdesc}`}}/>      
+                       
                     </div>
 
-                    <ul className="single-info-list">
-                       {/*} {
+                    {/*} <ul className="single-info-list">
+                       {
                             product.sku ?
                                 <li>
                                     SKU: <strong>{ product.sku }</strong>
@@ -195,7 +196,7 @@ function ProductDetailOne ( props ) {
                                 </React.Fragment>
                             ) )
                             }
-                        </li>*/}
+                        </li>
 
                         {
                             !product.tags == null && product.tags.length > 0 ?
@@ -213,9 +214,9 @@ function ProductDetailOne ( props ) {
                                 </li>
                                 : ''
                         }
-                    </ul>
+                    </ul>*/}
 
-                   {/*} {
+                   {/* {
                         product.variants.length > 0 ?
                             <div className="product-filters-container">
                                 {
@@ -292,7 +293,7 @@ function ProductDetailOne ( props ) {
                             : ''
                     }*/}
 
-                    {
+                   {/* {
                         isSticky &&
                         <div className="sticky-wrapper">
                             <div className="sticky-header desktop-sticky sticky-cart d-none d-lg-block bg-white">
@@ -341,18 +342,18 @@ function ProductDetailOne ( props ) {
                                         </div>
                                     </div>
 
-                                   {/*} <div className="product-action mt-0">
+                                   <div className="product-action mt-0">
                                         <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
 
                                         <a href="#" className={ `btn btn-dark add-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? attrs.sizes.length > 0 && attrs.colors.length ? '' : 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>
-                                            </div>*/}
+                                            </div>
                                 </div>
                             </div>
                         </div>
-                    }
+                    }*/}
 
-                    <div className="product-action">
-                        {/*{
+                    {/*  <div className="product-action">
+                      {
                             product.variants.length ?
                                 <SlideToggle collapsed={ true }>
                                     { ( { onToggle, setCollapsibleElement, toggleState } ) => (
@@ -374,16 +375,19 @@ function ProductDetailOne ( props ) {
                                     ) }
                                 </SlideToggle>
                                 : ''
-                        }*/}
+                        }
 
-                       {/*}   <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
+                          <Qty max={ product.stock } value={ qty } onChangeQty={ changeQty } />
 
-                      <a href="#" className={ `btn btn-dark add-cart shopping-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>*/}
-                    </div>
+                      <a href="#" className={ `btn btn-dark add-cart shopping-cart mr-2 ${ attrs.sizes.length > 0 || attrs.colors.length > 0 ? 'disabled' : '' }` } title="Add To Cart" onClick={ onAddCartClick }>Add to Cart</a>
+                    </div>*/}
 
-                    <hr className="divider mb-0 mt-0" />
+                    
 
-                   {/*} <div className="product-single-share mb-3">
+                   {/*} 
+                   <hr className="divider mb-0 mt-0" />
+                   
+                   <div className="product-single-share mb-3">
                         <label className="sr-only">Share:</label>
 
                         <div className="social-icons mr-2">

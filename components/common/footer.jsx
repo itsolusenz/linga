@@ -32,15 +32,19 @@ function Footer () {
 
                 <div className="footer-middle">
                     <div className="row">
-                        <div className="col-lg-6 col-xl-4">
+                        <div className="col-lg-6 col-xl-6">
                             <div className="widget">
-                                <h4 className="widget-title">Company Info</h4>
+                               {/*} <h4 className="widget-title">Company Info</h4>*/}
 
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                            <h4 className="widget-title">LINGA CHEMICALS</h4>
-                                            <ALink href="#">3, B-1 Police Station Road, East Masi Street, Madurai, Tamil Nadu - 625001. INDIA</ALink>
+                                            <img src={"/images/logo.svg"} />
+                                            <br/>
+                                            <h3 >LINGA CHEMICALS</h3>
+                                            
+                                            <p style={{color:'#777',fontSize:'16px'}}>The  MICRONOL  Logo  & LINGA CHEMICALS  are Registered Trade Marks  of LINGA CHEMICALS, MADURAI</p>
+                                           <p style={{color:'#fe8340',fontSize:'14px'}}> 3, B-1 Police Station Road,<br/> East Masi Street, Madurai,<br/> Tamil Nadu - 625001.<br/> INDIA.</p>
                                         </div>
                                     </div>
 
