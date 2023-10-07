@@ -2,9 +2,10 @@ import React from 'react';
 import ALink from '../../../common/ALink';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { EditorState, ContentState, convertFromHTML, convertToRaw } from 'draft-js'
+/*import { I18n } from 'i18n-js';
 import en from '../../../../pages/Language/en';
-import ta from '../../../../pages/Language/ta';
-
+import ta from '../../../../pages/Language/ta';*/
+//const I18n = require('i18n-js');
 
 export default function SingleTabOne ( props ) {
     const { adClass = "", product } = props;
