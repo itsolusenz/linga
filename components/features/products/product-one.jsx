@@ -58,7 +58,8 @@ console.log('product',product);
             <figure>
                 <ALink href={`/${product.url}/en`}>
                     <div className="lazy-overlay"></div>
-
+                    {
+                        product.pictures.length >0 ?
                      <LazyLoadImage
                         alt="product"
                         src={product.pictures[0].url}
@@ -67,6 +68,16 @@ console.log('product',product);
                         width="100%"
                         height="auto"
                     />
+                    :
+                    <LazyLoadImage
+                    alt="product"
+                    src={"https://www.laabamone.com/LingaChemicals/no-image.jpg"}
+                    threshold={500}
+                    effect="black and white"
+                    width="100%"
+                    height="auto"
+                />
+                    }
                   {
                         product.pictures.length >= 2 ?
                             <LazyLoadImage
@@ -134,18 +145,16 @@ console.log('product',product);
                     </div>
                     </div>*/}
                       <div className="price-box">
-                        {product.price.length > 0 ?
+                        {product.price.length > 0 &&
 
                            ( product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
-                                <span className="product-price">M.R.P:{ '₹' +  product.price[ 0 ].mrp ? product.price[ 0 ].mrp :"0.00"  }</span>
+                                <span className="product-price">M.R.P:{ '₹' +  product.price[ 0 ].mrp}</span>
                                 : 
-                                    <><span style={{display:'flex'}}> <h4> M.R.P: </h4>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[0].mrp}</span>
+                                    <><span style={{display:'flex'}}> <h7> M.R.P: </h7>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[0].mrp}</span>
                                         <span className="new-price">{ '₹' + product.price[0].salesprice}</span>
                                         </span>  </>)
 
-                                        :
-                                        <><span className="product-price">M.R.P:0.00</span></>
-                        }
+                         }
                     </div>
                {/*} <div className="price-box">
                     {

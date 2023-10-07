@@ -27,7 +27,7 @@ export default function ProductMediaOne ( props ) {
     };
 
     useEffect( () => {
-        if ( product ) {
+        if ( product && product.pictures.length>0) {
             setOpenLB( false );
             setPhotoIndex( 0 );
             setRedraw( true );

@@ -13,7 +13,6 @@ import ProductDetailOne from '../components/partials/product/details/product-det
 import SingleTabOne from '../components/partials/product/tabs/single-tab-one';
 import RelatedProducts from '../components/partials/product/widgets/related-products';
 import ProductSidebarTwo from '../components/partials/product/sidebars/sidebar-two';
-
 export default function New() {
     const slug = useRouter().query.slug;
     console.log("slug", slug)

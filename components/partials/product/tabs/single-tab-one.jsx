@@ -2,39 +2,65 @@ import React from 'react';
 import ALink from '../../../common/ALink';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { EditorState, ContentState, convertFromHTML, convertToRaw } from 'draft-js'
+//import { I18n } from 'i18n-js';
+import en from '../../../../pages/Language/en';
+import ta from '../../../../pages/Language/ta';
+//const I18n = require('i18n-js');
+
 export default function SingleTabOne ( props ) {
     const { adClass = "", product } = props;
-
+   
+   // const { t} = useTranslation('common');
+    //i18n.changeLanguage("ta");
+    
     function activeHandler ( e ) {
         e.preventDefault();
         document.querySelector( '.add-product-review .active' ) && document.querySelector( '.add-product-review .active' ).classList.remove( 'active' );
         e.currentTarget.classList.add( 'active' );
     }
-   {/*} const createEditorStateFromHTML = (html) => {
+    
+    const translations = {
+        en: { welcome: 'Hello',
+        Referrer: 'Referrer',
+        Name: 'Name', 
+        First: 'First',
+        Last: 'Last',
+        Type: 'Type',
+        Status: 'Status ',
+        Organization:'Organization',
+        Designation:'Designation',
+        Flat:'Flat',
+        'House no':'House no', Building:'Building',  Company:'Company', Apartment:'Apartment', 'Area':'Area',  Street:'Street',
+         Sector:'Sector', Village:'Village', Landmark:'Landmark',State:'State',City:'City', Postcode:'Postcode', Country:'Country',
+         Phone:'Phone',Phone:'Phone',Work:'Work',Private:'Private','Mobile no':'Mobile no',Email:'Email',Website:'Website',whatsApp:'whatsApp',Facebook:'Facebook',Url:'url',
+         Twitter :'Twitter',Linkedin:'Linkedin',Instagram:'Instagram',Youtube:'Youtube',About :'About',Content:'Content',Profile :'Profile',Image:'Image',
+         Info :'Info' ,'Social Media':'Social Media',
+         'Others':'Others',
+         'Submit':'Submit',Personal :'Personal',Contact :'Contact'
+        },
+         
 
-        html = html.replace(/^"|"$/g, '');
-  
-   
-  
-        // Clean up any unwanted characters
-  
-        html = html.replace(/\\"/g, '"'); // Remove escaped double quotes
-  
-        html = html.replace(/\\n/g, ''); // Remove escaped newline characters
-  
-        const blocksFromHTML = convertFromHTML(html);
-  
-        const contentState = ContentState.createFromBlockArray(
-  
-          blocksFromHTML.contentBlocks,
-  
-          blocksFromHTML.entityMap
-  
-        );
-  
-        return EditorState.createWithContent(contentState);
-  
-      };*/}
+        ta: { 
+        Referrer: 'பரிந்துரைப்பவர்',
+        Name: 'பெயர்', 
+        First: 'முதல்',
+        Last: 'கடைசி',
+        Type: 'வகை',
+        Status: 'நிலை ',
+        Organization:'அமைப்பு',
+        Designation:'பதவி',
+        Flat:'பிளாட்',
+        'House no':'வீடு எண்', Building:'கட்டிடம்',  Company:'நிறுவனம்', Apartment:'அடுக்குமாடி இல்லங்கள்', 'Area':'பகுதி',  Street:'தெரு',
+         Sector:'துறை', Village:'கிராமம்', Landmark:'மைல்கல்',State:'நிலை',City:'நகரம்', Postcode:'அஞ்சல் குறியீடு', Country:'நாடு',
+         Phone:'தொலைபேசி',phone:'தொலைபேசி',Work:'வேலை',Private:'தனியார்','Mobile no':'அலைபேசி எண்',Email:'மின்னஞ்சல்',Website:'இணையதளம்',whatsApp:'பகிரி',Facebook:'முகநூல்',Url:'முகவரி',
+         Twitter :'ட்விட்டர்',Linkedin:'லிங்டின்',Instagram:'இன்ஸ்டாகிராம்',Youtube:'வலைஒளி',About :'பற்றி',Content:'உள்ளடக்கம்',Profile :'சுயவிவரம்',Image:'படம்',
+         Info :'தகவல்' ,'Social Media':'சமூக ஊடகம்','Others':'மற்றவைகள்',
+         'Submit':'சமர்ப்பிக்கவும்',Personal :'தனிப்பட்ட',Contact :'தொடர்பு'
+    
+          },
+      };
+     /* const i18n = new I18n(translations);
+      i18n.locale = 'ta';*/
     return (
         <>
             <div className="skel-pro-tabs"></div>

@@ -160,14 +160,15 @@ function ProductDetailOne ( props ) {
                     <hr className="short-divider" />
 
                     <div className="price-box">
-                        {
+                        { product.price.length > 0 &&
 
-                            product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
+                             (product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
                                 <span className="product-price">M.R.P:{ '₹' + product.price[ 0 ].mrp }</span>
                                 : 
                                     <><span style={{display:'flex'}}> <h4> M.R.P: </h4>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[ 0 ].mrp }</span>
                                         <span className="new-price">{ '₹' + product.price[ 0 ].salesprice }</span>
                                         </span>  </>
+                             )
                         }
                     </div>
 

@@ -337,11 +337,11 @@ const data =[{
                                             ))}
                                 </div>
 
-                                <div className="featured-col">
+                               {/*} <div className="featured-col">
                                     {data[0] && data[0].featured.map((item, index) => (
                                         <ProductThree product={item} key={`featured-${index}`} />
                                     ))}
-                                </div>
+                                </div>*/}
                             </OwlCarousel>
                                     </div>
 
