@@ -87,7 +87,8 @@ export default function ProductMediaOne ( props ) {
                             {
                                 product.pictures.map( ( item, index ) => (
                                     <div className="product-item" key={ `product-item-${ index }` }>
-                                        <Magnifier
+                                        <Magnifier 
+                                        priority={false}
                                             style={ { paddingTop: "100%", position: "relative" } }
                                             imageSrc={ item.large_url }
                                             imageAlt="product"
@@ -110,7 +111,7 @@ export default function ProductMediaOne ( props ) {
                         {
                             product.pictures.map( ( item, index ) => (
                                 <div className="owl-dot media-with-lazy" key={ `owl-dot-${ index }` } onClick={ ( e ) => changeMediaIndex( index, e ) }>
-                                    <figure className="mb-0"><LazyLoadImage src={item.url } alt="Thumbnail" width="100%" height="auto" className="d-block" /></figure>
+                                    <figure className="mb-0"><LazyLoadImage src={item.url } priority={false} alt="Thumbnail" width="100%" height="auto" className="d-block" /></figure>
                                 </div>
                             ) )
                         }
