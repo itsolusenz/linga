@@ -279,7 +279,7 @@ const data =[{
                                 <ul>
                                     <li>
                                         {/*<i className="icon-shipped"></i>*/}
-                                        <img src="/images/ecofrnd.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                        <img src="/images/ecofrnd.webp" style={{paddingRight:'5px'}}/>
                                         <h4>ENVIRONMENT FRIENDLY</h4>
                                     </li>
                                     <li>
