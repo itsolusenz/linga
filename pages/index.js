@@ -6,21 +6,21 @@ import withApollo from '../server/apollo';
 
 // Import Custom Component
 
-import New from "./product/default/new"
+//import New from "./product/default/new"
 export default function Home({ adClass = '' }) {
     //function Home() {
 
     return (
         <>
 
-            <main className={`skeleton-body skel-shop-products `}>
-                {/*<IntroSection />*/}
+            {/*} <main className={`skeleton-body skel-shop-products `}>
+                <IntroSection />
                 <section className="container" style={{ paddingTop: '120px' }}>
 
-                    {/*} <New />*/}
+                   <New />
 
                 </section>
-                {/*}  <section className="container">
+                <section className="container">
 
                     <h2 className="section-title ls-n-15 text-center pt-2 m-b-4">Shop By Category</h2>
 
@@ -38,10 +38,10 @@ export default function Home({ adClass = '' }) {
 
                     <FeatureBoxSection />
 
-                </section>*/}
+                </section>
             </main >
 
-            {/*}   <NewsletterModal />*/}
+           <NewsletterModal />*/}
 
         </>
     )

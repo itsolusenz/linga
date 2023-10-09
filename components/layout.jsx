@@ -55,7 +55,7 @@ function Layout({ children, hideQuickView, hideVideo }) {
                 />
 
                 <QuickModal />
-                <VideoModal />
+               {/*} <VideoModal />*/}
 
                 <div className="wishlist-popup"><div className="wishlist-popup-msg">Product added!</div></div>
             </div>
