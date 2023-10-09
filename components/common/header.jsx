@@ -76,7 +76,7 @@ export default function Header ( { adClass = '' } ) {
     </button>*/}
 
                         <ALink href="/" className="logo">
-                            <img src="images/logo.svg" alt="Porto Logo" width="101" height="40" />
+                            <img src="images/logo.svg"  alt="Linga Logo" width="101" height="40" />
                         </ALink>
 
                        {/*<MainMenu />*/}
@@ -88,11 +88,11 @@ export default function Header ( { adClass = '' } ) {
                                     {slug2!='' && localStorage.getItem("SITE_LANGID")!=null && localStorage.getItem("SITE_LANGID")!=undefined ?
                                         languagelist.map((a,inc)=> 
                                             a.ShortCode == slug2.toUpperCase() &&
-                                            <ALink href="#" key={inc}><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20}/>{a.ShortCode}</ALink>
+                                            <ALink href="#" key={inc}><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.ShortCode}</ALink>
                                             
                                         )
                                         :
-                                        <ALink href="#"> <img src={"images/eng.webp"} width={20} height={20}/>{languagelist[0].ShortCode}</ALink>
+                                        <ALink href="#"> <img src={"images/eng.webp"} width={20} height={20} alt={languagelist[0].LanguageName}/>{languagelist[0].ShortCode}</ALink>
 
                                         }
                                     
@@ -102,7 +102,7 @@ export default function Header ( { adClass = '' } ) {
                                             <ul>
                                             {languagelist.map((a,inc)=>
                                             <li key={inc} onClick={()=>Callfunc(a.id,a.ShortCode)}>
-                                                <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20}/>{a.LanguageName}</ALink>
+                                                <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.LanguageName}</ALink>
                                             </li>
                                             )}
                                                 </ul>

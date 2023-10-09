@@ -206,17 +206,17 @@ function MobileMenu ( { router } ) {
 
                     <form className="search-wrapper mb-2" action="#" onSubmit={ searchProducts }>
                         <input type="text" className="form-control mb-0" placeholder="Search..." required onChange={ onChangeSearchText } />
-                        <button className="btn icon-search text-white bg-transparent p-0" type="submit"></button>
+                        <button className="btn icon-search text-white bg-transparent p-0" type="submit" title="submit"></button>
                     </form>
 
-                    <div className="social-icons">
+                   {/*} <div className="social-icons">
                         <ALink href="#" className="social-icon social-facebook icon-facebook" >
                         </ALink>
                         <ALink href="#" className="social-icon social-twitter icon-twitter">
                         </ALink>
                         <ALink href="#" className="social-icon social-instagram icon-instagram">
                         </ALink>
-                    </div>
+                                    </div>*/}
                 </div>
             </div>
         </>

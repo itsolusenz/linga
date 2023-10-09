@@ -39,7 +39,7 @@ function Footer () {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                            <img src={"/images/logo.svg"} />
+                                            <img src={"/images/logo.svg"}  alt="Linga Logo"/>
                                             <br/>
                                             <h3 >LINGA CHEMICALS</h3>
                                             
