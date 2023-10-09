@@ -279,17 +279,45 @@ const data =[{
                                 <ul>
                                     <li>
                                         {/*<i className="icon-shipped"></i>*/}
-                                        <img src="/images/ecofrnd.webp" style={{paddingRight:'5px'}}/>
+                                        <figure className="mb-0" style={{paddingRight:'5px'}}>
+                                        <LazyLoadImage
+                                            alt="thumbnail"
+                                            src="images/ecofrnd.webp"
+                                           // threshold={500}
+                                            effect="blur"
+                                            width="100%" 
+                                            height="auto"
+                                        />
+                                    </figure>                                        
                                         <h4>ENVIRONMENT FRIENDLY</h4>
                                     </li>
                                     <li>
                                         {/*<i className="icon-us-dollar"></i>*/}
-                                        <img src="/images/30yrs.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                        <figure className="mb-0" style={{paddingRight:'5px'}}>
+                                        <LazyLoadImage
+                                            alt="thumbnail"
+                                            src="images/30yrs.webp"
+                                           // threshold={500}
+                                            effect="blur"
+                                            width="100%" 
+                                            height="auto"
+                                        />
+                                    </figure> 
+                                        
                                         <h4>30+ YERARS EXPERIENCE</h4>
                                     </li>
                                     <li>
                                        {/*} <i className="icon-online-support"></i>*/}
-                                       <img src="/images/iso.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                       <figure className="mb-0" style={{paddingRight:'5px'}}>
+                                        <LazyLoadImage
+                                            alt="thumbnail"
+                                            src="images/iso.webp"
+                                           // threshold={500}
+                                            effect="blur"
+                                            width="100%" 
+                                            height="auto"
+                                        />
+                                    </figure> 
                                         <h4>ISO CERTIFIED</h4>
                                     </li>
                                 </ul>
@@ -305,11 +333,11 @@ const data =[{
                                     <figure className="mega-image">
                                         <LazyLoadImage
                                             alt="banner"
-                                            src="images/sideban.jpg"
+                                            src="images/sideban.webp"
                                             threshold={500}
                                             effect="blur"
-                                            width={100}
-                                            height={355}
+                                            width={269}
+                                            height={322}
                                         />
                                     </figure>
 

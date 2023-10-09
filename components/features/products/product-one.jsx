@@ -71,7 +71,7 @@ function ProductOne(props) {
                     :
                     <LazyLoadImage
                     alt="product"
-                    src={"https://www.laabamone.com/LingaChemicals/no-image.jpg"}
+                    src={"images/noimg.webp"}
                     threshold={500}
                     effect="black and white"
                     width="100%"
