@@ -36,7 +36,6 @@ const App = ({ Component, pageProps }) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
                     <title>Linga Chemicals</title>
-
                     <meta name="keywords" content="linga chemicals,Micronutrient Fertilizers,The Largest Manufacturer of  Micronutrient Fertilizers  in  South India" />
                     <meta name="description" content="Linga Chemicals is on a global mission to support the back bone of India; Agriculture. Our world class and environmental friendly products help the farmers in producing greater yield." />
                     <meta name="author" content="linga chemicals" />

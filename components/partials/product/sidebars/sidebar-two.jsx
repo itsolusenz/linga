@@ -266,6 +266,7 @@ const data =[{
 
     return (
         <>
+        
             <div className="sidebar-overlay" onClick={closeSidebar}></div>
             <div className="sidebar-toggle custom-sidebar-toggle" onClick={e => sidebarToggle(e)}><i className="fas fa-sliders-h"></i></div>
             <aside className={`sidebar-product col-lg-3 mobile-sidebar ${adClass}`}>
@@ -277,16 +278,19 @@ const data =[{
                             <div className="widget widget-info">
                                 <ul>
                                     <li>
-                                        <i className="icon-shipped"></i>
-                                        <h4>FREE<br />SHIPPING</h4>
+                                        {/*<i className="icon-shipped"></i>*/}
+                                        <img src="/images/ecofrnd.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                        <h4>ENVIRONMENT FRIENDLY</h4>
                                     </li>
                                     <li>
-                                        <i className="icon-us-dollar"></i>
-                                        <h4>100% MONEY<br />BACK GUARANTEE</h4>
+                                        {/*<i className="icon-us-dollar"></i>*/}
+                                        <img src="/images/30yrs.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                        <h4>30+ YERARS EXPERIENCE</h4>
                                     </li>
                                     <li>
-                                        <i className="icon-online-support"></i>
-                                        <h4>ONLINE<br />SUPPORT 24/7</h4>
+                                       {/*} <i className="icon-online-support"></i>*/}
+                                       <img src="/images/iso.png" style={{width:'100px',paddingRight:'5px'}}/>
+                                        <h4>ISO CERTIFIED</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -301,7 +305,7 @@ const data =[{
                                     <figure className="mega-image">
                                         <LazyLoadImage
                                             alt="banner"
-                                            src="images/banners/banner-sidebar.jpg"
+                                            src="images/sideban.jpg"
                                             threshold={500}
                                             effect="blur"
                                             width={100}
@@ -309,7 +313,7 @@ const data =[{
                                         />
                                     </figure>
 
-                                    <div className="mega-content">
+                                   {/*} <div className="mega-content">
                                         <div className="mega-price-box">
                                             <span className="price-big">50</span>
                                             <span className="price-desc"><em>%</em>OFF</span>
@@ -319,14 +323,15 @@ const data =[{
                                             <h3 className="mega-title mb-0">MEGA SALE</h3>
                                             <span className="mega-subtitle">MANY ITEM</span>
                                         </div>
-                                    </div>
+                                    </div>*/}
                                 </div>
                             </div>
                     }
-
+ {product.videos.length > '0' &&
                     <div className="widget widget-featured">
                          <h3 className="widget-title mb-0">Videos</h3>
                          <div className="widget-body">
+                           
                             <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
                                 <div className="featured-col">
                                { product.videos.map((item, index) => (
@@ -343,6 +348,9 @@ const data =[{
                                     ))}
                                 </div>*/}
                             </OwlCarousel>
+                            
+                            
+
                                     </div>
 
                      {/*}  <div className="widget-body">
@@ -371,6 +379,7 @@ const data =[{
                             </OwlCarousel>
                                     </div>*/}
                     </div>
+}
                 </StickyBox>
             </aside>
         </>

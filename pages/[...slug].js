@@ -13,13 +13,17 @@ import ProductDetailOne from '../components/partials/product/details/product-det
 import SingleTabOne from '../components/partials/product/tabs/single-tab-one';
 import RelatedProducts from '../components/partials/product/widgets/related-products';
 import ProductSidebarTwo from '../components/partials/product/sidebars/sidebar-two';
-export default function New() {
-    const slug = useRouter().query.slug;
-    console.log("slug", slug)
-    const slug1 = slug[0];
-    const slug2 = slug[1];
+import Head from 'next/head';
+export default function New(props) {
+    /* const slug = useRouter().query.slug;
+     console.log("slug", slug)
+     const slug1 = slug[0];
+     const slug2 = slug[1];
+     console.log("slug1", slug1)
+     console.log("slug2", slug2)*/
+    const slug1 = props.param1;
+    const slug2 = props.param2;
     console.log("slug1", slug1)
-    console.log("slug2", slug2)
     const [Poductdetails, setPoductdetails] = useState('');
     const [relateddetails, setrelateddetails] = useState('');
     useEffect(() => {
@@ -450,17 +454,24 @@ export default function New() {
 
 
     // console.log('Poductdetails.length', Poductdetails.length)
-    if (Poductdetails.length > '0' && Poductdetails[0].count > '0') {
+    if (props.pagemtitle != '' && Poductdetails.length > '0' && Poductdetails[0].count > '0') {
 
 
         return (
-            <main className="main product-page">
-                <nav aria-label="breadcrumb" className="breadcrumb-nav">
-                    <div className="container">
-                        <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
-                            <li className="breadcrumb-item"><ALink href="/shop">{Poductdetails[0] && Poductdetails[0].itemid}</ALink></li>
-                            {/*} <li className="breadcrumb-item">
+            <>
+                <Head>
+                    <title>{props.pagemtitle}</title>
+                    <meta name="keywords" content={props.pagemkey} />
+                    <meta name="description" content={props.pagemdesc} />
+                </Head>
+
+                <main className="main product-page">
+                    <nav aria-label="breadcrumb" className="breadcrumb-nav">
+                        <div className="container">
+                            <ol className="breadcrumb">
+                                <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
+                                <li className="breadcrumb-item"><ALink href="/shop">{Poductdetails[0] && Poductdetails[0].itemid}</ALink></li>
+                                {/*} <li className="breadcrumb-item">
                                     {
                                         categories.map((item, index) => (
                                             <React.Fragment key={`category-${index}`}>
@@ -470,40 +481,41 @@ export default function New() {
                                         ))
                                     }
                                 </li>*/}
-                            <li className="breadcrumb-item active" aria-current="page">{Poductdetails[0] && Poductdetails[0].itemname}</li>
+                                <li className="breadcrumb-item active" aria-current="page">{Poductdetails[0] && Poductdetails[0].itemname}</li>
 
-                        </ol>
-                    </div>
-                </nav>
-                <div className={`container skeleton-body skel-shop-products ${loading ? '' : 'loaded'}`}>
-                    <div className="row">
-                        <div className="col-lg-9 main-content pb-2">
-                            <div className={`product-single-container product-single-default`}>
-                                <div className="row">
+                            </ol>
+                        </div>
+                    </nav>
+                    <div className={`container skeleton-body skel-shop-products ${loading ? '' : 'loaded'}`}>
+                        <div className="row">
+                            <div className="col-lg-9 main-content pb-2">
+                                <div className={`product-single-container product-single-default`}>
+                                    <div className="row">
 
-                                    <ProductMediaOne product={Poductdetails[0]} />
-                                    <ProductDetailOne
-                                        product={Poductdetails[0]}
+                                        <ProductMediaOne product={Poductdetails[0]} />
+                                        <ProductDetailOne
+                                            product={Poductdetails[0]}
 
-                                    />
-                                    {/*}  prev={product[0] && data.product.prev}
+                                        />
+                                        {/*}  prev={product[0] && data.product.prev}
                                 next={product[0] && data.product.next}*/}
+                                    </div>
                                 </div>
+
+                                <SingleTabOne product={Poductdetails[0]} />
                             </div>
 
-                            <SingleTabOne product={Poductdetails[0]} />
+                            <ProductSidebarTwo product={Poductdetails[0]} />
                         </div>
 
-                        <ProductSidebarTwo product={Poductdetails[0]} />
+                        <RelatedProducts
+                            adClass="mb-1"
+                            loading={loading}
+                            products={relateddetails}
+                        />
                     </div>
-
-                    <RelatedProducts
-                        adClass="mb-1"
-                        loading={loading}
-                        products={relateddetails}
-                    />
-                </div>
-            </main >
+                </main >
+            </>
         );
 
     }
@@ -561,5 +573,35 @@ export default function New() {
         );
 
     }
+}
+export async function getServerSideProps(context) {
+
+    const slug1 = context.params.slug[0];
+    const slug2 = context.params.slug[1];
+
+    let url = 'https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2;
+    let requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
+    const res = await fetch(url, requestOptions);
+    const resJson = await res.json();
+    const mettitle = resJson[0].itemname;
+    const medesc = resJson[0].itemdesc;
+    const mekey = 'Linga Chemicals Product' + ', ' + resJson[0].itemid + ', ' + resJson[0].itemname;
+
+
+    return {
+        props: {
+            param1: slug1,
+            param2: slug2,
+            pagemtitle: mettitle,
+            pagemdesc: medesc,
+            pagemkey: mekey
+        },
+    };
 }
 
