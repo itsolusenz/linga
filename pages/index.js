@@ -17,7 +17,7 @@ export default function Home({ adClass = '' }) {
                 {/*<IntroSection />*/}
                 <section className="container" style={{ paddingTop: '120px' }}>
 
-                    <New />
+                    {/*} <New />*/}
 
                 </section>
                 {/*}  <section className="container">

@@ -16,7 +16,7 @@ import ProductSidebarTwo from '../../../components/partials/product/sidebars/sid
 
 export default function New() {
     const slug = useRouter().query;
-    console.log("slug", slug)
+    // console.log("slug", slug)
     const [Poductdetails, setPoductdetails] = useState('');
     useEffect(() => {
 

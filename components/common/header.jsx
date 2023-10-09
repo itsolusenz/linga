@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 
 // Import Custom Component
 import ALink from "./ALink";
-import CartMenu from "./partials/cart-menu";
+{/*import CartMenu from "./partials/cart-menu";
 import MainMenu from "./partials/main-menu";
-import SearchForm from "./partials/search-form";
+import SearchForm from "./partials/search-form";*/}
 export default function Header ( { adClass = '' } ) {
     const router = useRouter();
     const [languagelist, setlanguagelist] = useState([]);
@@ -15,7 +15,7 @@ export default function Header ( { adClass = '' } ) {
     if(useRouter().query.slug)
     {
         const slug = useRouter().query.slug;
-        console.log("slug", slug)
+       // console.log("slug", slug)
          slug1 = slug[0];
          slug2 = slug[1];
     }
@@ -26,7 +26,7 @@ export default function Header ( { adClass = '' } ) {
            
             const response = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=language&viewtype=listview');
             const json = await response.json();
-            console.log(json,'--------');
+           // console.log(json,'--------');
             setlanguagelist(json);
             
 
@@ -88,7 +88,7 @@ export default function Header ( { adClass = '' } ) {
                                     {slug2!='' && localStorage.getItem("SITE_LANGID")!=null && localStorage.getItem("SITE_LANGID")!=undefined ?
                                         languagelist.map((a,inc)=> 
                                             a.ShortCode == slug2.toUpperCase() &&
-                                            <ALink href="#"> <img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
+                                            <ALink href="#" key={inc}><img src={a.image} width={20} height={20}/>{a.ShortCode}</ALink>
                                             
                                         )
                                         :
@@ -101,7 +101,8 @@ export default function Header ( { adClass = '' } ) {
                                         
                                             <ul>
                                             {languagelist.map((a,inc)=>
-                                            <li onClick={()=>Callfunc(a.id,a.ShortCode)}><ALink href="#"><img src={a.image} width={20} height={20}/>{a.LanguageName}</ALink>
+                                            <li key={inc} onClick={()=>Callfunc(a.id,a.ShortCode)}>
+                                                <ALink href="#"><img src={a.image} width={20} height={20}/>{a.LanguageName}</ALink>
                                             </li>
                                             )}
                                                 </ul>

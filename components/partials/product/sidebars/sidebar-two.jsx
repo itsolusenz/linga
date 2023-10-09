@@ -17,7 +17,7 @@ import { widgetFeaturedProductSlider } from '../../../../utils/data/slider';
 function ProductSidebarTwo(props) {
     const { adClass = "", product } = props;
    // const { data, loading, error } = useQuery(GET_SHOP_SIDEBAR_DATA, { variables: { demo: 4, featured: true } });
-console.log(product,'product');
+//console.log(product,'product');
 //alert();
 const loading =false;
 const data =[{

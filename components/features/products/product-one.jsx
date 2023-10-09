@@ -25,7 +25,7 @@ function ProductOne(props) {
     function isInWishlist() {
         return product && props.wishlist.findIndex(item => item.slug === product.slug) > -1;
     }
-console.log('product',product);
+//console.log('product',product);
     function onWishlistClick(e) {
         e.preventDefault();
         if (!isInWishlist()) {
@@ -150,7 +150,7 @@ console.log('product',product);
                            ( product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
                                 <span className="product-price">M.R.P:{ '₹' +  product.price[ 0 ].mrp}</span>
                                 : 
-                                    <><span style={{display:'flex'}}> <h7> M.R.P: </h7>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[0].mrp}</span>
+                                    <><span style={{display:'flex'}}><p> M.R.P: </p>&nbsp; &nbsp; <span className="old-price">{ '₹' + product.price[0].mrp}</span>
                                         <span className="new-price">{ '₹' + product.price[0].salesprice}</span>
                                         </span>  </>)
 
