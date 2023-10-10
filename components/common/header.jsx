@@ -88,7 +88,7 @@ export default function Header ( { adClass = '' } ) {
                                     {slug2!='' && localStorage.getItem("SITE_LANGID")!=null && localStorage.getItem("SITE_LANGID")!=undefined ?
                                         languagelist.map((a,inc)=> 
                                             a.ShortCode == slug2.toUpperCase() &&
-                                            <ALink href="#" key={inc}><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.ShortCode}</ALink>
+                                            <ALink href="#" key={inc}><img src={a.ShortCode == 'EN' ? "images/eng.webp": a.ShortCode == 'TA' ? "images/ta.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.ShortCode}</ALink>
                                             
                                         )
                                         :
@@ -102,7 +102,7 @@ export default function Header ( { adClass = '' } ) {
                                             <ul>
                                             {languagelist.map((a,inc)=>
                                             <li key={inc} onClick={()=>Callfunc(a.id,a.ShortCode)}>
-                                                <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.LanguageName}</ALink>
+                                                <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.ShortCode == 'TA' ? "images/ta.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.LanguageName}</ALink>
                                             </li>
                                             )}
                                                 </ul>
