@@ -7,9 +7,12 @@ import ALink from "./ALink";
 {/*import CartMenu from "./partials/cart-menu";
 import MainMenu from "./partials/main-menu";
 import SearchForm from "./partials/search-form";*/}
-export default function Header ( { adClass = '' } ) {
+export default function Header ({ adClass = ''},props) {
+    
     const router = useRouter();
+    
     const [languagelist, setlanguagelist] = useState([]);
+    const [langcount, setlangcount] = useState('0');
     let slug1='';
     let slug2='';
     if(useRouter().query.slug)
@@ -31,11 +34,22 @@ export default function Header ( { adClass = '' } ) {
             
 
         }
+        const getitemlist = async () => {
+           
+            const response1 = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2);
+            const json1 = await response1.json();
+            //console.log(json1,'0000');
+            setlangcount(json1[0].is_langcount);
+           // console.log(json1[0].is_langcount,'--------');
+           
+            
 
+        }
         
         getlanguagelist();
+        getitemlist();
         
-    }, [])
+    }, [slug1,slug2])
     const Callfunc=(id,code)=>{
         
          const code1 = code;
@@ -100,7 +114,11 @@ export default function Header ( { adClass = '' } ) {
                                         
                                         
                                             <ul>
-                                            {languagelist.map((a,inc)=>
+                                            {languagelist.map((a,inc)=> a.ShortCode=='TA' && langcount>0 ?
+                                            <li key={inc} onClick={()=>Callfunc(a.id,a.ShortCode)}>
+                                                <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.ShortCode == 'TA' ? "images/ta.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.LanguageName}</ALink>
+                                            </li>
+                                            :a.ShortCode=='EN' &&
                                             <li key={inc} onClick={()=>Callfunc(a.id,a.ShortCode)}>
                                                 <ALink href="#"><img src={a.ShortCode == 'EN' ? "images/eng.webp" : a.ShortCode == 'TA' ? "images/ta.webp" : a.image} width={20} height={20} alt={a.LanguageName}/>{a.LanguageName}</ALink>
                                             </li>

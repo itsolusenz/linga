@@ -39,12 +39,12 @@ function Footer () {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                            <img src={"/images/logo.svg"}  alt="Linga Logo"/>
+                                            <img src={"/images/logo.svg"} style={{width:'70px'}} alt="Linga Logo"/>
                                             <br/>
-                                            <h3 >LINGA CHEMICALS</h3>
+                                            <h5>Linga Chemicals</h5>
                                             
-                                            <p style={{color:'#777',fontSize:'16px'}}>The  MICRONOL  Logo  & LINGA CHEMICALS  are Registered Trade Marks  of LINGA CHEMICALS, MADURAI</p>
-                                           <p style={{color:'#fe8340',fontSize:'14px'}}> 3, B-1 Police Station Road,<br/> East Masi Street, Madurai,<br/> Tamil Nadu - 625001.<br/> INDIA.</p>
+                                            <p style={{color:'#777',fontSize:'12px'}}>The  MICRONOL  Logo  & LINGA CHEMICALS  are Registered Trade Marks  of LINGA CHEMICALS, MADURAI</p>
+                                           <p style={{color:'#fe8340',fontSize:'12px'}}> 3, B-1 Police Station Road,<br/> East Masi Street, Madurai,<br/> Tamil Nadu - 625001.<br/> INDIA.</p>
                                         </div>
                                     </div>
 

@@ -19,8 +19,8 @@ export default function New(props) {
      console.log("slug", slug)
      const slug1 = slug[0];
      const slug2 = slug[1];
-     console.log("slug1", slug1)
-     console.log("slug2", slug2)*/
+     console.log("slug1", slug1)*/
+    console.log("slug2", props.productfull)
     const slug1 = props.param1;
     const slug2 = props.param2;
     const [Poductdetails, setPoductdetails] = useState('');
