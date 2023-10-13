@@ -326,7 +326,7 @@ const data =[{
                                     <li>
                                        {/*} <i className="icon-online-support"></i>*/}
                                        <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                       <Sharpimage a1="images/side1.png" a2="local" a3="100" a4="80" a5="" /> 
+                                       <Sharpimage a1="https://products.lingachem.com/images/side1.png" a2="server" a3="100" a4="80" a5="" /> 
 
                                       {/*}  <LazyLoadImage
                                             alt="thumbnail"
