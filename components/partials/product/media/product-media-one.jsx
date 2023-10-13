@@ -8,6 +8,7 @@ import OwlCarousel from '../../../features/owl-carousel';
 
 //Import Utils
 import { productSingleSlider, prodThumbSlider } from '../../../../utils/data/slider';
+import Sharpimage from '../../../common/Sharpimage'
 
 export default function ProductMediaOne ( props ) {
     const { adClass = 'col-lg-5 col-md-6', product, parent = ".product-single-default" } = props;
@@ -111,7 +112,12 @@ export default function ProductMediaOne ( props ) {
                         {
                             product.pictures.map( ( item, index ) => (
                                 <div className="owl-dot media-with-lazy" key={ `owl-dot-${ index }` } onClick={ ( e ) => changeMediaIndex( index, e ) }>
-                                    <figure className="mb-0"><LazyLoadImage src={item.url } priority={false} alt="Thumbnail" width="100%" height="auto" className="d-block" /></figure>
+                                    <figure className="mb-0">
+                                    <Sharpimage a1={item.url} a2="server" a3="90" a4="90" a5="" /> 
+
+                                       {/*} <LazyLoadImage src={item.url } priority={false} alt="Thumbnail" width="100%" height="auto" className="d-block" />*/}
+                                        
+                                        </figure>
                                 </div>
                             ) )
                         }

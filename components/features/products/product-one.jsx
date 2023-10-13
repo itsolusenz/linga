@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import Sharpimage from "../../common/Sharpimage"
 // Import Actions
 import { actions as WishlistAction } from "../../../store/wishlist";
 import { actions as CartAction } from "../../../store/cart";
@@ -58,16 +58,21 @@ function ProductOne(props) {
             <figure>
                 <ALink href={`/${product.url}/en`}>
                     <div className="lazy-overlay"></div>
-                    {
-                        product.pictures.length >0 ?
-                     <LazyLoadImage
+                  
+                   {/*} <LazyLoadImage
                         alt="product"
                         src={product.pictures[0].url}
                         threshold={500}
                         effect="black and white"
                         width="100%"
                         height="auto"
-                    />
+                    />*/}
+                   
+                    {
+                        product.pictures.length >0 ?
+                    
+                    <Sharpimage a1={product.pictures[0].url} a2="server" a3="273" a4="273" a5="" /> 
+
                     :
                     <LazyLoadImage
                     alt="product"
@@ -78,15 +83,17 @@ function ProductOne(props) {
                     height="auto"
                 />
                     }
-                  {
-                        product.pictures.length >= 2 ?
-                            <LazyLoadImage
+                    {/*  <LazyLoadImage
                                 alt="product"
                                 src={product.pictures[1].url}
                                 threshold={500}
                                 effect="black and white"
                                 wrapperClassName="product-image-hover"
-                            />
+                            />*/}
+                  {
+                        product.pictures.length >= 2 ?
+                        <Sharpimage a1={product.pictures[0].url} a2="server" a3="273" a4="273" a5="" /> 
+
                             : ""
                     }
                 </ALink>

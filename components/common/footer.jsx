@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ALink from "./ALink";
-
+import Sharpimage  from './Sharpimage';
 function Footer () {
     return (
         <footer className="footer">
@@ -39,7 +39,9 @@ function Footer () {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                            <img src={"/images/logo.svg"} style={{width:'70px'}} alt="Linga Logo"/>
+                                        <Sharpimage a1="pages/api/logo.svg" a2="local" a3="60" a4="30" a5="" /> 
+
+                                           {/*} <img src={"/images/logo.svg"} style={{width:'70px'}} alt="Linga Logo"/>*/}
                                             <br/>
                                             <h5>Linga Chemicals</h5>
                                             

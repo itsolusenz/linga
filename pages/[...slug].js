@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
 
+import axios from "axios";
 // Import Apollo Server and Query
 import withApollo from '../server/apollo';
 //import { GET_PRODUCT } from '../server/queries';
@@ -26,7 +27,7 @@ export default function New(props) {
     const [Poductdetails, setPoductdetails] = useState('');
     const [relateddetails, setrelateddetails] = useState('');
     const [pageload, setpageload] = useState(true);
-
+    const [gdata, setdata] = useState(true);
     useEffect(() => {
 
         setPoductdetails(props.productfull);
@@ -38,6 +39,11 @@ export default function New(props) {
             setpageload(false);
 
         }
+
+
+
+
+
     }, [props, slug1, slug2])
 
     const loading = pageload;
@@ -51,6 +57,7 @@ export default function New(props) {
              </div>
          </div>
      );*/
+
 
 
 
@@ -68,6 +75,7 @@ export default function New(props) {
                 <main className="main product-page">
                     <nav aria-label="breadcrumb" className="breadcrumb-nav">
                         <div className="container">
+
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><ALink href="/">home</ALink></li>
                                 <li className="breadcrumb-item"><ALink href="/shop">{Poductdetails[0] && Poductdetails[0].itemid}</ALink></li>

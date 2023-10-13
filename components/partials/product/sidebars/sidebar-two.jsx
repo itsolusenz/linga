@@ -1,25 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import StickyBox from 'react-sticky-box';
 import { useQuery } from '@apollo/react-hooks';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import axios from "axios";
 // Import Aollo Server and Query
 import withApollo from '../../../../server/apollo';
 import { GET_SHOP_SIDEBAR_DATA } from '../../../../server/queries';
-
+import Image from 'next/image'
 // Import Custom Component
 import ProductThree from '../../../features/products/product-three';
 import OwlCarousel from '../../../features/owl-carousel';
-
+import Sharpimage from '../../../common/Sharpimage'
+//import "../../../../pages/api"
 // Import Settings
 import { widgetFeaturedProductSlider } from '../../../../utils/data/slider';
 
 function ProductSidebarTwo(props) {
+    const [gdata, setdata] = useState(true);
+    const [simg1, setimg1] = useState('');
+    const [simg2, setimg2] = useState('');
+    const [simg3, setimg3] = useState('');
     const { adClass = "", product } = props;
    // const { data, loading, error } = useQuery(GET_SHOP_SIDEBAR_DATA, { variables: { demo: 4, featured: true } });
 //console.log(product,'product');
 //alert();
 const loading =false;
+
 const data =[{
     "categories": [
         {
@@ -263,13 +269,14 @@ const data =[{
     function closeSidebar() {
         document.querySelector('body').classList.contains('sidebar-opened') && document.querySelector('body').classList.remove('sidebar-opened');
     }
-
+    
     return (
         <>
         
             <div className="sidebar-overlay" onClick={closeSidebar}></div>
             <div className="sidebar-toggle custom-sidebar-toggle" onClick={e => sidebarToggle(e)}><i className="fas fa-sliders-h"></i></div>
             <aside className={`sidebar-product col-lg-3 mobile-sidebar ${adClass}`}>
+                
                 <StickyBox className="sticky-wrapper sticky-sidebar" offsetTop={70}>
                     {
                         loading ?
@@ -280,28 +287,38 @@ const data =[{
                                     <li>
                                         {/*<i className="icon-shipped"></i>*/}
                                         <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                        <LazyLoadImage
+                                           <Sharpimage a1="pages/api/side2.png" a2="local" a3="100" a4="80" a5="" /> 
+                                        
+                                          {/*}  <LazyLoadImage 
+                                            onLoad={ViewReligion("pages/api/side1.png","local","100","80")}
+                                             src={`data:image/gif;base64,${simg1}`}
                                             alt="thumbnail"
-                                            src="images/ecofrnd.webp"
+                                            
+                                           // loader={await loadUserslov()}
+                                           // src={simg1}
                                            // threshold={500}
                                             effect="blur"
-                                            width="100%" 
-                                            height="auto"
-                                        />
+                                           // width="100%" 
+                                            //height="auto"
+                                        />*/}
                                     </figure>                                        
                                         <h4>ENVIRONMENT FRIENDLY</h4>
                                     </li>
                                     <li>
                                         {/*<i className="icon-us-dollar"></i>*/}
                                         <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                        <LazyLoadImage
+                                        <Sharpimage a1="pages/api/side3.png" a2="local" a3="100" a4="80" a5="" /> 
+
+                                      {/*}  <LazyLoadImage
                                             alt="thumbnail"
-                                            src="images/30yrs.webp"
+                                            onLoad={ViewReligion("pages/api/side3.png","local","100","80")} 
+                                            src={`data:image/gif;base64,${simg1}`}
+                                           // src="images/ecofrnd.webp"
                                            // threshold={500}
                                             effect="blur"
                                             width="100%" 
                                             height="auto"
-                                        />
+                                        />*/}
                                     </figure> 
                                         
                                         <h4>30+ YERARS EXPERIENCE</h4>
@@ -309,14 +326,18 @@ const data =[{
                                     <li>
                                        {/*} <i className="icon-online-support"></i>*/}
                                        <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                        <LazyLoadImage
+                                       <Sharpimage a1="pages/api/side1.png" a2="local" a3="100" a4="80" a5="" /> 
+
+                                      {/*}  <LazyLoadImage
                                             alt="thumbnail"
-                                            src="images/iso.webp"
+                                            onLoad={ViewReligion("pages/api/side2.png","local","100","80")}
+                                             src={`data:image/gif;base64,${simg1}`}
+                                           // src="images/side2.png"
                                            // threshold={500}
                                             effect="blur"
                                             width="100%" 
                                             height="auto"
-                                        />
+                                    />*/}
                                     </figure> 
                                         <h4>ISO CERTIFIED</h4>
                                     </li>
