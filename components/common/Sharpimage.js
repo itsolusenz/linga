@@ -26,7 +26,7 @@ export default function Sharpimage(props) {
                         }
                     });
                 const [resultnew] = await Promise.all([response.data.message])
-                console.log('sharpimage', response.data.message);
+                //console.log('sharpimage', response.data.message);
 
                 setimg1(response.data.message);
 

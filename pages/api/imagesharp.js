@@ -44,7 +44,7 @@ export default function handler(req, res) {
             .resize({ width: Number(getimgwidth), height: Number(getimgheight), fit: 'fill' })
             .toBuffer()
             .then((data) => {
-                console.log('dataaaaaaaa', data);
+                // console.log('dataaaaaaaa', data);
                 resizedPhoto = data.toString('base64');
                 res.status(200).json({ message: resizedPhoto })
 

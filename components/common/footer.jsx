@@ -39,7 +39,7 @@ function Footer () {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                        <Sharpimage a1="pages/api/logo.svg" a2="local" a3="60" a4="30" a5="" /> 
+                                        <Sharpimage a1="https://products.lingachem.com/images/logo.svg" a2="server" a3="60" a4="30" a5="" /> 
 
                                            {/*} <img src={"/images/logo.svg"} style={{width:'70px'}} alt="Linga Logo"/>*/}
                                             <br/>

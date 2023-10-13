@@ -287,7 +287,7 @@ const data =[{
                                     <li>
                                         {/*<i className="icon-shipped"></i>*/}
                                         <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                           <Sharpimage a1="pages/api/side2.png" a2="local" a3="100" a4="80" a5="" /> 
+                                           <Sharpimage a1="https://products.lingachem.com/images/side2.png" a2="server" a3="100" a4="80" a5="" /> 
                                         
                                           {/*}  <LazyLoadImage 
                                             onLoad={ViewReligion("pages/api/side1.png","local","100","80")}
@@ -307,7 +307,7 @@ const data =[{
                                     <li>
                                         {/*<i className="icon-us-dollar"></i>*/}
                                         <figure className="mb-0" style={{paddingRight:'5px'}}>
-                                        <Sharpimage a1="pages/api/side3.png" a2="local" a3="100" a4="80" a5="" /> 
+                                        <Sharpimage a1="https://products.lingachem.com/images/side3.png" a2="server" a3="100" a4="80" a5="" /> 
 
                                       {/*}  <LazyLoadImage
                                             alt="thumbnail"
