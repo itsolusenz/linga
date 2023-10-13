@@ -1,8 +1,7 @@
 
 import got from "got";
 const sharp = require('sharp');
-import url from "URL";
-
+var url = require('url');
 export default function handler(req, res) {
     const queryParams = url.parse(req.url, true).query;
     const getimgurl = queryParams['sharpimg'];
