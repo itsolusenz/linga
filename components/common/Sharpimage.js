@@ -40,7 +40,7 @@ export default function Sharpimage(props) {
 
     {/* <MainMenu /> */ }
     return (
-        <img src={`data:image/gif;base64,${simg1}`} />
+        <img src={`data:image/gif;base64,${simg1}`} alt="Image" />
 
     )
 }
