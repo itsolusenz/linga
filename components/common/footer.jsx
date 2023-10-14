@@ -1,8 +1,41 @@
-import React from 'react';
-
+import React, { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import ALink from "./ALink";
 import Sharpimage  from './Sharpimage';
 function Footer () {
+
+    
+
+    let slug1='';
+    let slug2='';
+
+    if(useRouter().query.slug)
+    {
+        const slug = useRouter().query.slug;
+       // console.log("slug", slug)
+         slug1 = slug[0];
+         slug2 = slug[1];
+    }
+    const [logoimg, setlogoimg] = useState('');
+    useEffect(() => {
+        
+       
+        const getitemlist = async () => {
+           
+            const response1 = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2);
+            const json1 = await response1.json();
+           // console.log(json1,'0000');
+            setlogoimg(json1[0].companyimg);
+           
+           
+            
+
+        }
+        
+        
+        getitemlist();
+        
+    }, [slug1,slug2])
     return (
         <footer className="footer">
             <div className="container">
@@ -39,8 +72,9 @@ function Footer () {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="contact-widget">
-                                        <Sharpimage a1="https://products.lingachem.com/images/logo.svg" a2="server" a3="60" a4="30" a5="" /> 
-
+                                        {logoimg !='' && 
+                                        <Sharpimage a1={logoimg} a2="server" a3="100" a4="100" a5="footer" /> 
+                                          }
                                            {/*} <img src={"/images/logo.svg"} style={{width:'70px'}} alt="Linga Logo"/>*/}
                                             <br/>
                                             <h5>Linga Chemicals</h5>

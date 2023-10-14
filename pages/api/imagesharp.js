@@ -41,7 +41,8 @@ export default function handler(req, res) {
         //  await sharp(fimgb).toFile("pages/api/ed.jpg");
 
         await sharp(buffer)
-            .resize({ width: Number(getimgwidth), height: Number(getimgheight), fit: 'fill' })
+            .webp({ lossless: true, smartSubsample: true })
+            .resize({ width: Number(getimgwidth), height: Number(getimgheight), fit: 'contain', background: 'white' })
             .toBuffer()
             .then((data) => {
                 // console.log('dataaaaaaaa', data);

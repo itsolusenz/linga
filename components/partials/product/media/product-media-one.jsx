@@ -84,24 +84,28 @@ export default function ProductMediaOne ( props ) {
                          {/*}   { isSale() ? <div className="product-label label-sale">{ isSale() }</div> : '' }*/}
                         </div>
 
-                        <OwlCarousel adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>
+                       {/*} <OwlCarousel width="100%" adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>*/}
                             {
                                 product.pictures.map( ( item, index ) => (
                                     <div className="product-item" key={ `product-item-${ index }` }>
-                                        <Magnifier 
+                                       
+                                      <Sharpimage a1={item.url} a2="server" a3="380" a4="380" a5="magnifier" /> 
+
+                                       
+                                   {/*}   <Magnifier 
                                         priority={false}
                                             style={ { paddingTop: "100%", position: "relative" } }
-                                            imageSrc={ item.large_url }
+                                            imageSrc={ item.url }
                                             imageAlt="product"
                                             mouseActivation="hover"
                                             cursorStyleActive="crosshair"
                                             dragToMove={ false }
                                             className="product-single-image"
-                                        />
+                                />*/}
                                     </div>
                                 ) )
                             }
-                        </OwlCarousel>
+                       {/*} </OwlCarousel>*/}
 
                         <span className="prod-full-screen" onClick={ openLightBox }>
                             <i className="icon-plus"></i>
@@ -113,7 +117,7 @@ export default function ProductMediaOne ( props ) {
                             product.pictures.map( ( item, index ) => (
                                 <div className="owl-dot media-with-lazy" key={ `owl-dot-${ index }` } onClick={ ( e ) => changeMediaIndex( index, e ) }>
                                     <figure className="mb-0">
-                                    <Sharpimage a1={item.url} a2="server" a3="90" a4="90" a5="" /> 
+                                    <Sharpimage a1={item.url} a2="server" a3="90" a4="90" a5="thumbnail" /> 
 
                                        {/*} <LazyLoadImage src={item.url } priority={false} alt="Thumbnail" width="100%" height="auto" className="d-block" />*/}
                                         
@@ -126,9 +130,9 @@ export default function ProductMediaOne ( props ) {
                     {
                         openLB && (
                             <LightBox
-                                mainSrc={ product.pictures[ photoIndex ].large_url }
-                                prevSrc={ product.pictures[ ( photoIndex + product.pictures.length - 1 ) % product.pictures.length ].large_url }
-                                nextSrc={ product.pictures[ ( photoIndex + 1 ) % product.pictures.length ].large_url }
+                                mainSrc={ product.pictures[ photoIndex ].url }
+                                prevSrc={ product.pictures[ ( photoIndex + product.pictures.length - 1 ) % product.pictures.length ].url }
+                                nextSrc={ product.pictures[ ( photoIndex + 1 ) % product.pictures.length ].url }
                                 onCloseRequest={ closeLightBox }
                                 onMoveNextRequest={ moveNextPhoto }
                                 onMovePrevRequest={ movePrevPhoto }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import { useRouter } from 'next/router';
+import Sharpimage  from './Sharpimage';
 
 // Import Custom Component
 import ALink from "./ALink";
@@ -13,6 +14,7 @@ export default function Header ({ adClass = ''},props) {
     
     const [languagelist, setlanguagelist] = useState([]);
     const [langcount, setlangcount] = useState('0');
+    const [logoimg, setlogoimg] = useState('');
     let slug1='';
     let slug2='';
     if(useRouter().query.slug)
@@ -38,7 +40,8 @@ export default function Header ({ adClass = ''},props) {
            
             const response1 = await fetch('https://www.laabamone.com/LingaChemicals/api.php?eventtype=allproduct_details&viewtype=listview&url=' + slug1 + '&language=' + slug2);
             const json1 = await response1.json();
-            //console.log(json1,'0000');
+            console.log(json1,'0000');
+            setlogoimg(json1[0].companyimg);
             setlangcount(json1[0].is_langcount);
            // console.log(json1[0].is_langcount,'--------');
            
@@ -90,7 +93,9 @@ export default function Header ({ adClass = ''},props) {
     </button>*/}
 
                         <ALink href="/" className="logo">
-                            <img src="images/logo.svg"  alt="Linga Logo" width="101" height="40" />
+                            {logoimg !='' && 
+                            <Sharpimage a1={logoimg} a2="server" a3="80" a4="80" a5="header" /> 
+                             }
                         </ALink>
 
                        {/*<MainMenu />*/}
