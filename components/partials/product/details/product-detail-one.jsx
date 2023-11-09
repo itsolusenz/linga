@@ -160,7 +160,9 @@ function ProductDetailOne ( props ) {
                     <hr className="short-divider" />
 
                     <div className="price-box">
-                        { product.price.length > 0 &&
+                        {  product.price !=null &&
+                        
+                        product.price.length > 0 &&
 
                              (product.price[ 0 ].salesprice == product.price[ 0 ].mrp ?
                                 <span className="product-price">M.R.P:{ '₹' + product.price[ 0 ].mrp }</span>
