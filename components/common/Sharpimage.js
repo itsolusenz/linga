@@ -43,11 +43,22 @@ export default function Sharpimage(props) {
 
     }, [a1, a2, a3, a4, a5])
 
-
+    {/*<ReactImageMagnify {...{
+                    smallImage: {
+                        alt: 'Wristwatch by Ted Baker London',
+                        isFluidWidth: true,
+                        src: `data:image/gif;base64,${simg1}`
+                    },
+                    largeImage: {
+                        src: `data:image/gif;base64,${simg1}`,
+                        width: 1200,
+                        height: 1800
+                    }
+                }} />*/}
     {/* <MainMenu /> */ }
     if (simg1 == '') {
         return (
-            <Skeleton animation="wave" width={100} height={80} />
+            <Skeleton animation="wave" width={a3} height={a4} />
         );
     }
     else {
@@ -62,7 +73,10 @@ export default function Sharpimage(props) {
                     largeImage: {
                         src: `data:image/gif;base64,${simg1}`,
                         width: 1200,
-                        height: 1800
+                        height: 1800,
+                        enlargedImagePortalId: "product-single-details"
+
+
                     }
                 }} />
             )

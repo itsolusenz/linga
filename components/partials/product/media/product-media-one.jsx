@@ -84,7 +84,7 @@ export default function ProductMediaOne ( props ) {
                          {/*}   { isSale() ? <div className="product-label label-sale">{ isSale() }</div> : '' }*/}
                         </div>
 
-                       {/*} <OwlCarousel width="100%" adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>*/}
+                       <OwlCarousel width="10%" adClass="product-single-carousel owl-carousel owl-theme show-nav-hover" options={ productSingleSlider } events={ events } onChangeRef={ ref => setMediaRef( ref ) } redraw={ redraw }>
                             {
                                 product.pictures.map( ( item, index ) => (
                                     <div className="product-item" key={ `product-item-${ index }` }>
@@ -105,7 +105,7 @@ export default function ProductMediaOne ( props ) {
                                     </div>
                                 ) )
                             }
-                       {/*} </OwlCarousel>*/}
+                       </OwlCarousel>
 
                         <span className="prod-full-screen" onClick={ openLightBox }>
                             <i className="icon-plus"></i>

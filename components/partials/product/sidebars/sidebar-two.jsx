@@ -382,15 +382,17 @@ const data =[{
                          <div className="widget-body">
                            
                             <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
-                                <div className="featured-col">
+                                
                                { product.videos.map((item, index) => (
+                                <div className="featured-col">
                                                 <ProductThree
                                                     product={item}
                                                     key={"product-three" + index}
                                                 />
+                                                 </div>
                                             ))}
-                                </div>
-
+                               
+                               
                                {/*} <div className="featured-col">
                                     {data[0] && data[0].featured.map((item, index) => (
                                         <ProductThree product={item} key={`featured-${index}`} />
@@ -402,7 +404,7 @@ const data =[{
 
                                     </div>
 
-                     {/*}  <div className="widget-body">
+                      {/*<div className="widget-body">
                             <OwlCarousel adClass="widget-featured-products" isTheme={false} options={widgetFeaturedProductSlider}>
                                 <div className="featured-col">
                                     {

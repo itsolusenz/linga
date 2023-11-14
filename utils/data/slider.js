@@ -130,6 +130,7 @@ export const widgetFeaturedProductSlider = {
     margin: 20,
     loop: false,
     nav: true,
+    item: 1,
     navText: ['<i class="icon-angle-left">', '<i class="icon-angle-right">'],
     dots: false
 }
